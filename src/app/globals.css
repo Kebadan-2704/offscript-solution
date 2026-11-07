@@ -114,7 +114,7 @@ body {
 
 /* Eyebrow element with 32px hairline */
 .eyebrow {
-  color: var(--terra);
+  color: #9B3F27;
   font-family: var(--font-ibm-mono), monospace;
   font-size: 12px;
   font-weight: 500;
@@ -124,6 +124,10 @@ body {
   align-items: center;
   gap: 12px;
   margin-bottom: 24px;
+}
+
+.eyebrow-dark {
+  color: #E07A5C !important;
 }
 
 .eyebrow::before {

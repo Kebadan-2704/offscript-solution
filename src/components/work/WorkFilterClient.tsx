@@ -39,7 +39,7 @@ export function WorkFilterClient() {
                   type="button"
                   aria-pressed={isActive}
                   onClick={() => setActiveCategory(f.key)}
-                  className={`font-mono text-xs px-4 py-2 border rounded-full transition-all duration-300 uppercase tracking-wider cursor-pointer focus-visible:outline-2 focus-visible:outline-[#D36B4D] ${
+                  className={`font-mono text-xs min-h-[44px] px-5 py-2.5 inline-flex items-center border rounded-full transition-all duration-300 uppercase tracking-wider cursor-pointer focus-visible:outline-2 focus-visible:outline-[#D36B4D] ${
                     isActive
                       ? 'bg-[#191B1E] text-[#F5F3ED] border-[#191B1E]'
                       : 'bg-white text-[#191B1E] border-[#E6E2D9] hover:border-[#191B1E]'
@@ -70,7 +70,7 @@ export function WorkFilterClient() {
                   type="button"
                   aria-pressed={isActive}
                   onClick={() => setActiveStatus(f.key)}
-                  className={`font-mono text-xs px-3.5 py-1.5 border transition-all duration-300 uppercase tracking-wider cursor-pointer focus-visible:outline-2 focus-visible:outline-[#D36B4D] ${
+                  className={`font-mono text-xs min-h-[44px] px-4 py-2.5 inline-flex items-center border transition-all duration-300 uppercase tracking-wider cursor-pointer focus-visible:outline-2 focus-visible:outline-[#D36B4D] ${
                     isActive
                       ? 'bg-[#D36B4D] text-[#191B1E] border-[#D36B4D] font-bold'
                       : 'bg-transparent text-[#6B6C67] border-[#E6E2D9] hover:border-[#191B1E] hover:text-[#191B1E]'

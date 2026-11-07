@@ -19,7 +19,7 @@ export function Eyebrow({
     <div
       className={cn(
         'eyebrow',
-        dark ? 'text-[#D36B4D]' : 'text-[#D36B4D]',
+        dark ? 'eyebrow-dark text-[#E07A5C]' : 'text-[#9B3F27]',
         className
       )}
     >

@@ -31,8 +31,8 @@ export function SectionHeading({
         {index && (
           <span
             className={cn(
-              'font-mono text-xs tracking-widest',
-              dark ? 'text-[#92938D]' : 'text-[#6B6C67]'
+              'font-mono text-xs tracking-widest font-medium',
+              dark ? 'text-[#92938D]' : 'text-[#5A5B56]'
             )}
           >
             {index}
@@ -42,7 +42,7 @@ export function SectionHeading({
 
       <h2
         className={cn(
-          'font-space font-semibold tracking-[-0.035em] text-3xl sm:text-4xl md:text-5xl lg:text-6xl max-w-3xl leading-[1.05]',
+          'font-space font-semibold tracking-[-0.035em] text-3xl sm:text-4xl md:text-5xl lg:text-6xl max-w-3xl leading-[1.05] text-balance',
           dark ? 'text-[#F5F3ED]' : 'text-[#191B1E]'
         )}
       >
@@ -52,8 +52,8 @@ export function SectionHeading({
       {description && (
         <p
           className={cn(
-            'mt-6 text-base sm:text-lg max-w-2xl leading-relaxed',
-            descriptionClassName || (dark ? 'text-[#E6E2D9]/80' : 'text-[#6B6C67]')
+            'mt-6 text-base sm:text-lg max-w-2xl leading-relaxed text-pretty',
+            descriptionClassName || (dark ? 'text-[#E6E2D9]/80' : 'text-[#5A5B56]')
           )}
         >
           {description}

@@ -21,12 +21,12 @@ export function MaskReveal({
   delayMs = 0,
 }: MaskRevealProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [inView, setInView] = useState(false);
+  const [inView, setInView] = useState(Component === 'h1');
   const prefersReduced = useReducedMotion();
   const shouldShow = inView || prefersReduced;
 
   useEffect(() => {
-    if (prefersReduced) return;
+    if (prefersReduced || Component === 'h1') return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {

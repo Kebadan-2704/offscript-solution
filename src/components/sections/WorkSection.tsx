@@ -41,7 +41,7 @@ export function WorkSection() {
                 key={filter.key}
                 type="button"
                 onClick={() => setActiveFilter(filter.key)}
-                className={`font-mono text-xs px-4 py-2 rounded-full border transition-all duration-300 uppercase tracking-wider cursor-pointer focus-visible:outline-2 focus-visible:outline-[#D36B4D] ${
+                className={`font-mono text-xs min-h-[44px] px-5 py-2.5 inline-flex items-center rounded-full border transition-all duration-300 uppercase tracking-wider cursor-pointer focus-visible:outline-2 focus-visible:outline-[#D36B4D] ${
                   isActive
                     ? 'bg-[#191B1E] text-[#F5F3ED] border-[#191B1E]'
                     : 'bg-transparent text-[#191B1E] border-[#191B1E]/30 hover:border-[#191B1E]'
@@ -101,7 +101,7 @@ export function WorkSection() {
                 {/* Project Details */}
                 <div className="p-6 sm:p-7 flex flex-col justify-between flex-1">
                   <div>
-                    <span className="font-mono text-xs text-[#D36B4D] uppercase tracking-wider block mb-2 font-medium">
+                    <span className="font-mono text-xs text-[#9B3F27] uppercase tracking-wider block mb-2 font-semibold">
                       {project.category}
                     </span>
 
@@ -128,7 +128,7 @@ export function WorkSection() {
                     </div>
 
                     <Link
-                      href={`/work`}
+                      href={`/work/${project.slug}`}
                       className="inline-flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-wider text-[#191B1E] hover:text-[#D36B4D] transition-colors"
                     >
                       <span>Explore Case Study</span>
@@ -142,7 +142,7 @@ export function WorkSection() {
         </div>
 
         {/* Placeholder review notice banner per PART 6.5 & PART 11 */}
-        <div className="mt-12 p-4 border-l-2 border-[#D36B4D] bg-[#E6E2D9]/40 font-mono text-xs text-[#6B6C67]">
+        <div className="mt-12 p-4 border-l-2 border-[#9B3F27] bg-[#E6E2D9]/40 font-mono text-xs text-[#5A5B56]">
           [Review Note]: Sample project architecture concepts. Replace with verified commercial case
           studies via <code className="text-[#191B1E]">src/content/work.ts</code> before public
           launch.

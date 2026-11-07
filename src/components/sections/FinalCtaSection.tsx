@@ -5,6 +5,7 @@ import { Container } from '@/components/ui/Container';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Button } from '@/components/ui/Button';
 import { SplitHeading } from '@/components/animations/SplitHeading';
+import { Magnetic } from '@/components/animations/Magnetic';
 
 /**
  * Section 10: Final Studio CTA with oversized headline, floating 3D symbol, and quick consultation intake.
@@ -53,9 +54,11 @@ export function FinalCtaSection() {
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-5">
-              <Button href="/contact" variant="primary">
-                Schedule a Consultation
-              </Button>
+              <Magnetic strength={10}>
+                <Button href="/contact" variant="primary">
+                  Schedule a Consultation
+                </Button>
+              </Magnetic>
               <a
                 href="mailto:hello@offscriptsolution.com"
                 className="font-mono text-xs text-[#E6E2D9] uppercase tracking-wider border-b border-[#E6E2D9] pb-1 hover:text-[#D36B4D] hover:border-[#D36B4D] transition-colors"

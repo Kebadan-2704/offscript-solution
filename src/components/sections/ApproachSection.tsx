@@ -96,7 +96,7 @@ export function ApproachSection() {
                       {stage.name}
                     </h3>
 
-                    <p className="font-mono text-xs text-[#D36B4D] uppercase tracking-wider mb-4 font-medium">
+                    <p className="font-mono text-xs text-[#9B3F27] uppercase tracking-wider mb-4 font-semibold">
                       {stage.tagline}
                     </p>
 
@@ -108,8 +108,8 @@ export function ApproachSection() {
                   {/* Activity tags */}
                   <ul className="space-y-1.5 pt-4 border-t border-[#191B1E]/15 text-xs font-mono text-[#191B1E]/80">
                     {stage.activities.map((act, aIdx) => (
-                      <li key={aIdx} className="flex items-center gap-2">
-                        <span className="text-[#D36B4D]">•</span>
+                      <li key={act} className="flex items-center gap-2">
+                        <span className="text-[#9B3F27]">•</span>
                         <span>{act}</span>
                       </li>
                     ))}

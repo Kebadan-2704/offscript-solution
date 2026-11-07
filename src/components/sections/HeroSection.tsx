@@ -6,14 +6,20 @@ import { Button } from '@/components/ui/Button';
 import { SplitHeading } from '@/components/animations/SplitHeading';
 import { Parallax } from '@/components/animations/Parallax';
 import { DrawPath } from '@/components/animations/DrawPath';
+import { ArchitectureCanvas } from '@/components/animations/ArchitectureCanvas';
+import { Magnetic } from '@/components/animations/Magnetic';
 
 /**
- * Editorial Hero Section with asymmetric typography and bespoke SVG OS symbol composition.
+ * Editorial Hero Section with asymmetric typography, ambient architecture canvas,
+ * and bespoke SVG OS symbol composition.
  */
 export function HeroSection() {
   return (
-    <section className="relative min-h-[92svh] pt-36 sm:pt-40 lg:pt-48 pb-20 flex flex-col justify-between overflow-hidden bg-[#F5F3ED]">
-      <Container className="my-auto w-full">
+    <section className="relative min-h-[92svh] pt-36 sm:pt-40 lg:pt-48 pb-16 flex flex-col justify-between overflow-hidden bg-[#F5F3ED]">
+      {/* Ambient Engineering Coordinate Canvas */}
+      <ArchitectureCanvas theme="light" className="pointer-events-none absolute inset-0 opacity-40 z-0" />
+
+      <Container className="my-auto w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Left Column: Editorial Headline & Actions */}
           <div className="lg:col-span-7 xl:col-span-8 flex flex-col items-start">
@@ -25,18 +31,22 @@ export function HeroSection() {
               className="text-5xl sm:text-7xl md:text-8xl xl:text-[104px] font-bold tracking-[-0.045em] leading-[0.92] text-[#191B1E]"
             />
 
-            <p className="mt-8 text-lg sm:text-xl text-[#6B6C67] max-w-xl leading-relaxed">
+            <p className="mt-8 text-lg sm:text-xl text-[#6B6C67] max-w-xl leading-relaxed text-balance">
               We engineer bespoke software, intelligent systems, and scalable digital platforms
               designed to solve complex operational bottlenecks with uncompromising technical craft.
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-4 sm:gap-5">
-              <Button href="#contact" variant="primary">
-                Start a Project
-              </Button>
-              <Button href="#work" variant="secondary">
-                Explore Our Work
-              </Button>
+              <Magnetic strength={10}>
+                <Button href="#contact" variant="primary">
+                  Start a Project
+                </Button>
+              </Magnetic>
+              <Magnetic strength={10}>
+                <Button href="#work" variant="secondary">
+                  Explore Our Work
+                </Button>
+              </Magnetic>
             </div>
           </div>
 
@@ -118,18 +128,20 @@ export function HeroSection() {
         </div>
       </Container>
 
-      {/* Scroll Cue Hairline indicator */}
-      <div className="wrap w-full flex items-center justify-between pt-12 border-t border-[#E6E2D9]">
-        <div className="flex items-center gap-4 text-xs font-mono text-[#6B6C67] uppercase tracking-widest">
-          <div className="relative w-px h-8 bg-[#E6E2D9] overflow-hidden">
-            <div className="absolute inset-0 bg-[#D36B4D] animate-[scrollCue_2s_infinite]" />
+      {/* Scroll Cue Hairline indicator aligned inside Container */}
+      <Container className="w-full relative z-10">
+        <div className="w-full flex items-center justify-between pt-10 border-t border-[#E6E2D9]">
+          <div className="flex items-center gap-4 text-xs font-mono text-[#6B6C67] uppercase tracking-widest">
+            <div className="relative w-px h-8 bg-[#E6E2D9] overflow-hidden">
+              <div className="absolute inset-0 bg-[#D36B4D] animate-[scrollCue_2s_infinite]" />
+            </div>
+            <span>Scroll to explore</span>
           </div>
-          <span>Scroll to explore</span>
+          <div className="font-mono text-xs text-[#6B6C67] tracking-widest">
+            STUDIO // 2026
+          </div>
         </div>
-        <div className="font-mono text-xs text-[#6B6C67] tracking-widest">
-          STUDIO // 2026
-        </div>
-      </div>
+      </Container>
 
       <style jsx>{`
         @keyframes float {

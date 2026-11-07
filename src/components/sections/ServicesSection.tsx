@@ -46,7 +46,7 @@ export function ServicesSection() {
                   className="w-full text-left py-7 sm:py-9 flex items-center justify-between gap-6 cursor-pointer focus-visible:outline-2 focus-visible:outline-[#D36B4D]"
                 >
                   <div className="flex items-center gap-6 sm:gap-12 md:gap-16">
-                    <span className="font-mono text-sm sm:text-base font-semibold text-[#D36B4D]">
+                    <span className="font-mono text-sm sm:text-base font-semibold text-[#9B3F27]">
                       {service.number}
                     </span>
                     <h3 className="font-space text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium tracking-tight text-[#191B1E] transition-transform duration-300 ease-out group-hover:translate-x-3">
@@ -76,7 +76,7 @@ export function ServicesSection() {
                   }`}
                 >
                   <div className="min-h-0">
-                    <div className="pb-10 pt-2 grid grid-cols-1 md:grid-cols-12 gap-8 items-start pl-12 sm:pl-20 md:pl-28">
+                    <div className="pb-10 pt-2 grid grid-cols-1 md:grid-cols-12 gap-8 items-start pl-0 sm:pl-16 md:pl-24">
                       {/* Left: Description & Link */}
                       <div className="md:col-span-6 pr-4">
                         <p className="text-base sm:text-lg text-[#6B6C67] leading-relaxed mb-6">
@@ -93,13 +93,13 @@ export function ServicesSection() {
 
                       {/* Right: Key Deliverables List */}
                       <div className="md:col-span-6">
-                        <span className="font-mono text-xs text-[#92938D] uppercase tracking-wider block mb-4">
+                        <span className="font-mono text-xs text-[#5A5B56] uppercase tracking-wider block mb-4 font-semibold">
                           Key Capabilities
                         </span>
                         <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-[#191B1E]">
                           {service.capabilities.map((cap, capIdx) => (
                             <li key={capIdx} className="flex items-center gap-2">
-                              <span className="text-[#D36B4D] font-mono" aria-hidden="true">
+                              <span className="text-[#9B3F27] font-mono" aria-hidden="true">
                                 →
                               </span>
                               <span>{cap}</span>

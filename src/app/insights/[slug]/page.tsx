@@ -132,7 +132,7 @@ export default async function InsightDetailPage({ params }: InsightPageProps) {
   };
 
   return (
-    <article className="pt-32 sm:pt-40 pb-24 bg-[#F5F3ED] text-[#191B1E] min-h-screen">
+    <article className="pt-36 sm:pt-44 pb-20 sm:pb-28 bg-[#F5F3ED] text-[#191B1E] min-h-screen">
       {/* Sticky Reading Progress Indicator */}
       <ReadingProgress />
 

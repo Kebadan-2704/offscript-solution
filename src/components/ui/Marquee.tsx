@@ -37,11 +37,11 @@ export function Marquee({
             <span
               key={idx}
               className={`font-syne text-xl sm:text-2xl md:text-3xl font-medium tracking-tight ${
-                idx % 2 === 1 ? 'text-[#D36B4D]' : 'text-[#191B1E]'
+                idx % 2 === 1 ? 'text-[#9B3F27]' : 'text-[#191B1E]'
               }`}
             >
               {item}
-              <span className="inline-block ml-10 sm:ml-14 text-[#92938D]" aria-hidden="true">
+              <span className="inline-block ml-10 sm:ml-14 text-[#5A5B56]" aria-hidden="true">
                 /
               </span>
             </span>
@@ -58,11 +58,11 @@ export function Marquee({
               <span
                 key={`dup-${idx}`}
                 className={`font-syne text-xl sm:text-2xl md:text-3xl font-medium tracking-tight ${
-                  idx % 2 === 1 ? 'text-[#D36B4D]' : 'text-[#191B1E]'
+                  idx % 2 === 1 ? 'text-[#9B3F27]' : 'text-[#191B1E]'
                 }`}
               >
                 {item}
-                <span className="inline-block ml-10 sm:ml-14 text-[#92938D]">
+                <span className="inline-block ml-10 sm:ml-14 text-[#5A5B56]">
                   /
                 </span>
               </span>

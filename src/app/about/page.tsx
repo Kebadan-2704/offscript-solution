@@ -122,7 +122,7 @@ export default function AboutPage() {
   };
 
   return (
-    <div className="pt-32 sm:pt-40 pb-24 bg-[#F5F3ED] text-[#191B1E] min-h-screen">
+    <div className="pt-36 sm:pt-44 pb-20 sm:pb-28 bg-[#F5F3ED] text-[#191B1E] min-h-screen">
       {/* Schema.org Structured Metadata */}
       <script
         type="application/ld+json"

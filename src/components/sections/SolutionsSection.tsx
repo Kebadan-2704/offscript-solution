@@ -1,8 +1,11 @@
+'use client';
+
 import Link from 'next/link';
 import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { SOLUTIONS } from '@/content/solutions';
 import { ArrowUpRight } from 'lucide-react';
+import { SpotlightCard } from '@/components/animations/SpotlightCard';
 
 /**
  * Geometric glyph icon component for solution tiles.
@@ -27,7 +30,7 @@ function SolutionGlyph({ strokeColor = '#D36B4D' }: { strokeColor?: string }) {
 }
 
 /**
- * Section 06: Asymmetric 12-column solutions architecture showcase.
+ * Section 06: Asymmetric 12-column solutions architecture showcase with React Bits Spotlight illumination.
  */
 export function SolutionsSection() {
   return (
@@ -49,24 +52,29 @@ export function SolutionsSection() {
 
             let cardBg = 'bg-[#F5F3ED] text-[#191B1E] border-[#E6E2D9]';
             let glyphColor = '#D36B4D';
+            let spotlight = 'rgba(211, 107, 77, 0.08)';
 
             if (isInk) {
               cardBg = 'bg-[#191B1E] text-[#F5F3ED] border-[#191B1E]';
               glyphColor = '#D36B4D';
+              spotlight = 'rgba(211, 107, 77, 0.18)';
             } else if (isSage) {
               cardBg = 'bg-[#DCE3DD] text-[#191B1E] border-[#191B1E]/15';
               glyphColor = '#191B1E';
+              spotlight = 'rgba(25, 27, 30, 0.08)';
             } else if (isSand) {
               cardBg = 'bg-[#E6E2D9] text-[#191B1E] border-[#191B1E]/15';
               glyphColor = '#D36B4D';
+              spotlight = 'rgba(211, 107, 77, 0.10)';
             }
 
             return (
-              <div
+              <SpotlightCard
                 key={item.id}
-                className={`group relative p-8 sm:p-10 border flex flex-col justify-between overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.2,0.7,0.1,1)] hover:-translate-y-1.5 hover:border-[#191B1E] ${cardBg} ${item.colSpan}`}
+                spotlightColor={spotlight}
+                className={`group relative p-8 sm:p-10 border flex flex-col justify-between overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.2,0.7,0.1,1)] hover:-translate-y-1 hover:border-[#191B1E] ${cardBg} ${item.colSpan}`}
                 style={{
-                  minHeight: idx === 0 ? '420px' : idx === 5 ? '240px' : '320px',
+                  minHeight: idx === 0 ? '400px' : '340px',
                 }}
               >
                 {/* Background Rotating Decorative Glyph */}
@@ -77,7 +85,11 @@ export function SolutionsSection() {
                 {/* Top: Category & Concept Tag */}
                 <div className="relative z-10">
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="font-mono text-xs font-semibold text-[#D36B4D] tracking-wider uppercase">
+                    <span
+                      className={`font-mono text-xs font-semibold tracking-wider uppercase ${
+                        isInk ? 'text-[#D36B4D]' : 'text-[#9B3F27]'
+                      }`}
+                    >
                       {item.category}
                     </span>
                     <span
@@ -97,7 +109,11 @@ export function SolutionsSection() {
 
                   <p
                     className={`text-sm sm:text-base max-w-md leading-relaxed ${
-                      isInk ? 'text-[#E6E2D9]/80' : 'text-[#6B6C67]'
+                      isInk
+                        ? 'text-[#E6E2D9]/80'
+                        : isSage || isSand
+                        ? 'text-[#3E403C]'
+                        : 'text-[#5A5B56]'
                     }`}
                   >
                     {item.description}
@@ -107,7 +123,7 @@ export function SolutionsSection() {
                 {/* Bottom: Action Trigger */}
                 <div className="relative z-10 pt-8 mt-auto">
                   <Link
-                    href={`/solutions`}
+                    href="/solutions"
                     className={`inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider font-medium border-b pb-1 transition-colors ${
                       isInk
                         ? 'border-[#F5F3ED] text-[#F5F3ED] hover:text-[#D36B4D] hover:border-[#D36B4D]'
@@ -118,7 +134,7 @@ export function SolutionsSection() {
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
-              </div>
+              </SpotlightCard>
             );
           })}
         </div>
@@ -126,4 +142,3 @@ export function SolutionsSection() {
     </section>
   );
 }
-
