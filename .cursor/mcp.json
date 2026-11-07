@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "layoza": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "-p",
+        "layoza",
+        "layoza-mcp"
+      ]
+    }
+  }
+}

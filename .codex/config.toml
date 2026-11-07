@@ -1,0 +1,3 @@
+[mcp_servers.layoza]
+command = "cmd"
+args = ["/c", "npx", "-y", "-p", "layoza", "layoza-mcp"]

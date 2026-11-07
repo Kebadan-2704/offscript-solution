@@ -1,0 +1,18 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "layoza": {
+      "type": "local",
+      "command": [
+        "cmd",
+        "/c",
+        "npx",
+        "-y",
+        "-p",
+        "layoza",
+        "layoza-mcp"
+      ],
+      "enabled": true
+    }
+  }
+}
