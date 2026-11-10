@@ -7,14 +7,14 @@ export default function NotFound() {
     <div className="pt-40 pb-28 bg-[#F5F3ED] min-h-[80vh] flex flex-col justify-center">
       <Container>
         <span className="font-mono text-xs text-[#D36B4D] tracking-widest uppercase block mb-4 font-semibold">
-          404 // Route Error
+          404 — Page Not Found
         </span>
 
-        <h1 className="font-syne text-6xl sm:text-8xl md:text-9xl font-bold tracking-tight text-[#191B1E] leading-none mb-8">
+        <h1 className="font-syne text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight text-[#191B1E] leading-none mb-8 break-words">
           OFF SCRIPT<span className="text-[#D36B4D]">.</span>
         </h1>
 
-        <p className="font-inter text-lg sm:text-xl text-[#6B6C67] max-w-xl leading-relaxed mb-10">
+        <p className="font-inter text-base sm:text-lg text-[#52534E] max-w-xl leading-relaxed mb-10">
           The requested system endpoint does not exist or has been re-architected. Return to base
           navigation below:
         </p>
@@ -31,15 +31,15 @@ export default function NotFound() {
           </Button>
         </div>
 
-        <div className="pt-8 border-t border-[#E6E2D9] max-w-xl font-mono text-xs text-[#92938D] flex flex-wrap items-center gap-6">
+        <div className="pt-8 border-t border-[#E6E2D9] max-w-xl font-mono text-xs text-[#52534E] flex flex-wrap items-center gap-6">
           <span>Quick Destinations:</span>
-          <Link href="/work" className="text-[#191B1E] hover:text-[#D36B4D] transition-colors">
+          <Link href="/work" className="text-[#191B1E] hover:text-[#9B3F27] transition-colors min-h-[44px] inline-flex items-center">
             Selected Work →
           </Link>
-          <Link href="/solutions" className="text-[#191B1E] hover:text-[#D36B4D] transition-colors">
+          <Link href="/solutions" className="text-[#191B1E] hover:text-[#9B3F27] transition-colors min-h-[44px] inline-flex items-center">
             Custom Solutions →
           </Link>
-          <Link href="/insights" className="text-[#191B1E] hover:text-[#D36B4D] transition-colors">
+          <Link href="/insights" className="text-[#191B1E] hover:text-[#9B3F27] transition-colors min-h-[44px] inline-flex items-center">
             Technical Insights →
           </Link>
         </div>

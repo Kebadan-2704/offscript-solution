@@ -37,7 +37,7 @@ export async function generateMetadata({ params }: ServicePageProps) {
   const pageUrl = `${SITE_CONFIG.url}/services/${service.slug}`;
 
   return {
-    title: `${service.title} — OFFSCRIPT SOLUTION`,
+    title: service.title,
     description: service.tagline,
     alternates: {
       canonical: pageUrl,
@@ -115,7 +115,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
   };
 
   return (
-    <article className="pt-36 sm:pt-44 pb-20 sm:pb-28 bg-[#F5F3ED] text-[#191B1E] min-h-screen">
+    <article className="pt-24 sm:pt-28 pb-10 sm:pb-12 bg-[#F5F3ED] text-[#191B1E] min-h-screen">
       {/* Structured Schema.org Metadata */}
       <script
         type="application/ld+json"

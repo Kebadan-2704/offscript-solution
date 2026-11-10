@@ -28,7 +28,7 @@ export const ContactTimelineSchema = z.enum([
 export const ContactFormSchema = z.object({
   fullName: z
     .string()
-    .min(2, { message: 'Please provide your full name (minimum 2 characters).' })
+    .min(2, { message: 'Please provide your full name — minimum 2 characters.' })
     .max(100, { message: 'Name must not exceed 100 characters.' }),
   workEmail: z
     .string()

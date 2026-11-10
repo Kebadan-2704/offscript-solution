@@ -230,6 +230,91 @@ class EngineEntropyCalibrator(trt.IInt8EntropyCalibrator2):
     ],
   },
   {
+    slug: 'deterministic-multi-tenant-isolation',
+    title: 'Deterministic Multi-Tenant Isolation in Distributed Cloud Architectures',
+    subtitle:
+      'Eliminating noisy-neighbor degradation and cryptographic data leak paths in shared SaaS infrastructure.',
+    description:
+      'How to enforce tenant-level resource isolation, cryptographically partitioned connection pooling, and deterministic rate-limiting across multi-region PostgreSQL clusters.',
+    category: 'Technology Insights',
+    publishedAt: '2025-11-28',
+    readingTime: '9 min read',
+    author: 'Offscript Engineering',
+    authorRole: 'Cloud & Distributed Infrastructure',
+    tags: ['Cloud Architecture', 'PostgreSQL', 'Multi-Tenancy', 'Distributed Systems'],
+    featured: false,
+    draft: false,
+    toc: [
+      { id: 'the-illusion-of-row-level-security', title: '1. The Illusion of Row-Level Security Alone' },
+      { id: 'connection-pool-starvation', title: '2. Mitigating Connection Pool Starvation' },
+      { id: 'ephemeral-tenant-keys', title: '3. Ephemeral Tenant Encryption Keys' },
+      { id: 'architectural-invariants', title: '4. Summary of Architectural Invariants' },
+    ],
+    content: [
+      {
+        type: 'paragraph',
+        text: 'In high-concurrency SaaS applications, multi-tenant database architectures promise operational cost efficiency. However, without mathematical isolation at the connection pool, query execution plan, and cache tiers, an unconstrained burst from a single noisy tenant cascades into latency degradation for every customer across the cluster.',
+      },
+      {
+        type: 'heading',
+        level: 'h2',
+        id: 'the-illusion-of-row-level-security',
+        text: '1. The Illusion of Row-Level Security Alone',
+      },
+      {
+        type: 'paragraph',
+        text: 'PostgreSQL Row-Level Security (RLS) provides clean logical isolation, but it does not prevent query planner regression when tenant data volumes skew by orders of magnitude. A query planner choosing an index scan for a small tenant may switch to a costly sequential scan under another tenant’s filter, causing cache eviction across shared buffer pools.',
+      },
+      {
+        type: 'callout',
+        variant: 'decision',
+        title: 'Architectural Invariant',
+        text: 'Decouple large enterprise tenants into dedicated schema partitions or isolated tenant pools while retaining unified orchestration across shared application clusters.',
+      },
+      {
+        type: 'heading',
+        level: 'h2',
+        id: 'connection-pool-starvation',
+        text: '2. Mitigating Connection Pool Starvation',
+      },
+      {
+        type: 'paragraph',
+        text: 'Standard PgBouncer setups pool connections indiscriminately. When one tenant triggers hundreds of concurrent long-running transactions, global connection limits are exhausted. We implement tiered token-bucket connection dispatchers at the application gateway level before queries ever reach PostgreSQL wire protocol.',
+      },
+      {
+        type: 'quote',
+        quote:
+          'True multi-tenancy is not just ensuring Customer A cannot read Customer B’s data—it is guaranteeing that Customer A cannot consume Customer B’s CPU cycles.',
+        attribution: 'Offscript Infrastructure Guild',
+      },
+      {
+        type: 'heading',
+        level: 'h2',
+        id: 'ephemeral-tenant-keys',
+        text: '3. Ephemeral Tenant Encryption Keys',
+      },
+      {
+        type: 'paragraph',
+        text: 'By deriving envelope encryption keys per tenant through KMS hardware security modules, cryptographic shredding becomes trivial: deleting the tenant key renders all historical database backups mathematically irrecoverable without expensive table rewrites.',
+      },
+      {
+        type: 'heading',
+        level: 'h2',
+        id: 'architectural-invariants',
+        text: '4. Summary of Architectural Invariants',
+      },
+      {
+        type: 'list',
+        items: [
+          'Enforce strict memory and execution timeouts at the transaction level per tenant identity.',
+          'Partition database connection pools into high-tier guaranteed slots and dynamic elastic shared pools.',
+          'Instrument continuous P99 latency alarms segregated by tenant identity to catch noisy neighbors in real time.',
+          'Automate tenant offboarding via cryptographic key revocation to maintain compliance standards without downtime.',
+        ],
+      },
+    ],
+  },
+  {
     slug: 'template-architectural-decision-records',
     title: 'Standardizing Architectural Decision Records (ADRs) Across Distributed Systems',
     subtitle:

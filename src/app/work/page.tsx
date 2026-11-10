@@ -6,7 +6,7 @@ import { SITE_CONFIG } from '@/content/site';
 import { PROJECTS } from '@/content/work';
 
 export const metadata: Metadata = {
-  title: 'Selected Work & Architectures — OFFSCRIPT SOLUTION',
+  title: 'Selected Work & Architectures',
   description:
     'Exploration of commercial systems, research prototypes, and architectural concepts across AI, IoT, Enterprise Platforms, and Digital Health.',
   alternates: {
@@ -57,7 +57,7 @@ export default function WorkPage() {
   };
 
   return (
-    <div className="pt-36 sm:pt-44 pb-20 sm:pb-28 bg-[#F5F3ED] text-[#191B1E] min-h-screen">
+    <div className="pt-24 sm:pt-28 pb-10 sm:pb-12 bg-[#F5F3ED] text-[#191B1E] min-h-screen">
       {/* Schema.org Structured Metadata */}
       <script
         type="application/ld+json"
@@ -71,7 +71,8 @@ export default function WorkPage() {
       <Container>
         {/* Section Heading */}
         <SectionHeading
-          index="01 // 06"
+          as="h1"
+          index="01"
           eyebrow="Portfolio & Systems"
           title={
             <>
@@ -87,7 +88,7 @@ export default function WorkPage() {
         {/* Studio Disclaimer per PART 6.5 & PART 11 */}
         <div className="mt-16 p-6 border-l-4 border-[#D36B4D] bg-white border border-[#E6E2D9] font-mono text-xs text-[#6B6C67] leading-relaxed">
           <span className="text-[#191B1E] font-bold block mb-1">
-            [Transparency & Portfolio Governance]:
+            Transparency & Portfolio Governance:
           </span>
           Entries marked <code className="text-[#D36B4D] font-bold">Concept</code> or <code className="text-[#191B1E] font-bold">Prototype</code> reflect internal studio engineering architectures and technical explorations. We never fabricate commercial clients or metric claims. Verified commercial client engagements are cataloged in accordance with client confidentiality and NDA agreements.
         </div>

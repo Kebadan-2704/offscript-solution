@@ -40,6 +40,10 @@ export function SmoothScroll({ children }: SmoothScrollProps) {
       touchMultiplier: 1,
     });
 
+    if (typeof window !== 'undefined') {
+      (window as unknown as { __lenis?: Lenis }).__lenis = lenis;
+    }
+
     // Synchronize Lenis with GSAP ScrollTrigger for 60fps lockstep scroll-driven animations
     lenis.on('scroll', ScrollTrigger.update);
 
@@ -51,6 +55,9 @@ export function SmoothScroll({ children }: SmoothScrollProps) {
     gsap.ticker.lagSmoothing(0);
 
     return () => {
+      if (typeof window !== 'undefined') {
+        (window as unknown as { __lenis?: Lenis }).__lenis = undefined;
+      }
       gsap.ticker.remove(tickerCallback);
       lenis.destroy();
     };

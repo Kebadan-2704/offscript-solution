@@ -23,7 +23,7 @@ export default function ErrorPage({ error, reset }: ErrorPageProps) {
           <div className="flex items-center gap-2 text-[#D36B4D] mb-4">
             <AlertTriangle className="w-5 h-5" />
             <span className="font-mono text-xs text-[#D36B4D] tracking-widest uppercase font-semibold">
-              500 // Runtime Exception
+              500 — Runtime Exception
             </span>
           </div>
 

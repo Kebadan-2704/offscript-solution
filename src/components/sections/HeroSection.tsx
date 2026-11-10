@@ -1,11 +1,11 @@
 'use client';
 
+import Image from 'next/image';
 import { Container } from '@/components/ui/Container';
 import { Eyebrow } from '@/components/ui/Eyebrow';
 import { Button } from '@/components/ui/Button';
 import { SplitHeading } from '@/components/animations/SplitHeading';
 import { Parallax } from '@/components/animations/Parallax';
-import { DrawPath } from '@/components/animations/DrawPath';
 import { ArchitectureCanvas } from '@/components/animations/ArchitectureCanvas';
 import { Magnetic } from '@/components/animations/Magnetic';
 
@@ -15,28 +15,38 @@ import { Magnetic } from '@/components/animations/Magnetic';
  */
 export function HeroSection() {
   return (
-    <section className="relative min-h-[92svh] pt-36 sm:pt-40 lg:pt-48 pb-16 flex flex-col justify-between overflow-hidden bg-[#F5F3ED]">
+    <section
+      id="hero"
+      aria-label="Hero Section"
+      className="relative min-h-[100svh] pt-20 sm:pt-22 lg:pt-24 pb-4 sm:pb-6 flex flex-col justify-between overflow-hidden bg-[#F5F3ED] scroll-mt-[84px]"
+    >
       {/* Ambient Engineering Coordinate Canvas */}
       <ArchitectureCanvas theme="light" className="pointer-events-none absolute inset-0 opacity-40 z-0" />
 
-      <Container className="my-auto w-full relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+      <Container className="w-full relative z-10 my-auto py-1 sm:py-2">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
           {/* Left Column: Editorial Headline & Actions */}
-          <div className="lg:col-span-7 xl:col-span-8 flex flex-col items-start">
+          <div className="lg:col-span-7 xl:col-span-7 flex flex-col items-start justify-center">
             <Eyebrow>Independent Technology & Digital Solutions Studio</Eyebrow>
 
             <SplitHeading
-              lines={['WE THINK', 'BEYOND THE', 'EXPECTED.']}
+              lines={[
+                'WE THINK',
+                'BEYOND THE',
+                <>
+                  EXPECTED<span className="text-[#D36B4D]">.</span>
+                </>,
+              ]}
               as="h1"
-              className="text-5xl sm:text-7xl md:text-8xl xl:text-[104px] font-bold tracking-[-0.045em] leading-[0.92] text-[#191B1E]"
+              className="font-syne text-4xl sm:text-6xl md:text-7xl lg:text-[70px] xl:text-[80px] font-bold tracking-[-0.03em] leading-[0.95] text-[#191B1E]"
             />
 
-            <p className="mt-8 text-lg sm:text-xl text-[#6B6C67] max-w-xl leading-relaxed text-balance">
+            <p className="mt-4 sm:mt-5 text-sm sm:text-base lg:text-base text-[#52534E] max-w-xl leading-relaxed text-balance">
               We engineer bespoke software, intelligent systems, and scalable digital platforms
               designed to solve complex operational bottlenecks with uncompromising technical craft.
             </p>
 
-            <div className="mt-10 flex flex-wrap items-center gap-4 sm:gap-5">
+            <div className="mt-6 sm:mt-7 flex flex-wrap items-center gap-3 sm:gap-4">
               <Magnetic strength={10}>
                 <Button href="#contact" variant="primary">
                   Start a Project
@@ -50,78 +60,31 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right Column: Art-Directed SVG Composition */}
-          <div className="lg:col-span-5 xl:col-span-4 flex justify-center lg:justify-end">
-            <Parallax maxOffset={18} className="w-full max-w-[340px] sm:max-w-[420px] aspect-square">
-              <div className="relative w-full h-full p-6 sm:p-8 flex items-center justify-center">
-                <svg
-                  viewBox="0 0 400 400"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="w-full h-full overflow-visible"
-                >
-                  {/* Outer subtle guide hexagon */}
-                  <DrawPath
-                    d="M 200,40 L 340,120 L 340,280 L 200,360 L 60,280 L 60,120 Z"
-                    stroke="#E6E2D9"
-                    strokeWidth="1.5"
-                    strokeDasharray="4 4"
-                    durationMs={2200}
-                    delayMs={200}
-                  />
+          {/* Right Column: Sculptural 3D Master Emblem Video (Extra Large, Centered & Responsive) */}
+          <div className="lg:col-span-5 xl:col-span-5 flex justify-center lg:justify-end items-center">
+            <Parallax maxOffset={14} className="w-full max-w-[440px] sm:max-w-[540px] lg:max-w-[640px] xl:max-w-[720px] 2xl:max-w-[780px]">
+              <div className="relative w-full aspect-[16/11] flex items-center justify-center group">
+                {/* Ambient Warm Lighting Halo */}
+                <div
+                  aria-hidden="true"
+                  className="absolute -inset-16 sm:-inset-24 bg-radial from-[#D36B4D]/30 via-[#D36B4D]/12 to-transparent blur-3xl pointer-events-none rounded-full"
+                />
 
-                  {/* Left "O" Ring Form (Carbon Ink) */}
-                  <g className="animate-[float_7s_ease-in-out_infinite_alternate]">
-                    <DrawPath
-                      d="M 170,120 L 100,165 C 80,180 80,220 100,235 L 170,280 C 190,292 215,280 215,255 L 215,145 C 215,120 190,108 170,120 Z"
-                      stroke="#191B1E"
-                      strokeWidth="24"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      durationMs={2400}
-                      delayMs={300}
-                    />
-                  </g>
-
-                  {/* Top Right Orange Parallelogram Accent */}
-                  <g className="animate-[float_6s_ease-in-out_infinite_alternate_-2s]">
-                    <DrawPath
-                      d="M 250,110 L 305,110 L 285,145 L 230,145 Z"
-                      stroke="#D36B4D"
-                      strokeWidth="6"
-                      fill="#D36B4D"
-                      durationMs={1800}
-                      delayMs={600}
-                    />
-                  </g>
-
-                  {/* Intersecting "S" Streamers (Terracotta Ribbon) */}
-                  <g className="animate-[float_8s_ease-in-out_infinite_alternate_-4s]">
-                    <DrawPath
-                      d="M 160,280 L 290,280 C 315,280 325,255 310,240 L 205,175 C 190,165 200,140 220,140 L 320,140"
-                      stroke="#D36B4D"
-                      strokeWidth="22"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      durationMs={2800}
-                      delayMs={500}
-                    />
-                  </g>
-
-                  {/* Diagonal Node-to-Node Slash */}
-                  <DrawPath
-                    d="M 90,320 L 310,80"
-                    stroke="#D36B4D"
-                    strokeWidth="3"
-                    strokeDasharray="6 6"
-                    durationMs={2000}
-                    delayMs={800}
-                  />
-
-                  {/* Accent Nodes */}
-                  <circle cx="90" cy="320" r="5" fill="#191B1E" />
-                  <circle cx="310" cy="80" r="5" fill="#D36B4D" />
-                </svg>
+                {/* 3D Motion Video (Autoplay, Muted, Looped, Native Transparent Alpha, Scale-Boosted) */}
+                <div className="relative w-full h-full flex items-center justify-center select-none">
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="auto"
+                    className="w-full h-auto object-contain select-none pointer-events-none filter drop-shadow-[0_28px_56px_rgba(25,27,30,0.16)] transform scale-135 sm:scale-140 lg:scale-150 xl:scale-158 transition-transform duration-700 ease-[cubic-bezier(0.2,0.7,0.1,1)] group-hover:scale-[1.68]"
+                    aria-label="OFFSCRIPT SOLUTION animated 3D brand emblem"
+                  >
+                    <source src="/brand/offscript-hero.webm" type="video/webm" />
+                    <source src="/brand/offscript-hero.mp4" type="video/mp4" />
+                  </video>
+                </div>
               </div>
             </Parallax>
           </div>
@@ -130,26 +93,26 @@ export function HeroSection() {
 
       {/* Scroll Cue Hairline indicator aligned inside Container */}
       <Container className="w-full relative z-10">
-        <div className="w-full flex items-center justify-between pt-10 border-t border-[#E6E2D9]">
-          <div className="flex items-center gap-4 text-xs font-mono text-[#6B6C67] uppercase tracking-widest">
-            <div className="relative w-px h-8 bg-[#E6E2D9] overflow-hidden">
+        <div className="w-full flex items-center justify-between pt-3 sm:pt-4 border-t border-[#E6E2D9]">
+          <div className="flex items-center gap-4 text-xs font-mono text-[#52534E] uppercase tracking-widest">
+            <div className="relative w-px h-6 bg-[#E6E2D9] overflow-hidden">
               <div className="absolute inset-0 bg-[#D36B4D] animate-[scrollCue_2s_infinite]" />
             </div>
             <span>Scroll to explore</span>
           </div>
-          <div className="font-mono text-xs text-[#6B6C67] tracking-widest">
-            STUDIO // 2026
+          <div className="font-mono text-xs text-[#52534E] tracking-widest pr-20 sm:pr-28 lg:pr-32">
+            STUDIO 2026
           </div>
         </div>
       </Container>
 
       <style jsx>{`
-        @keyframes float {
+        @keyframes emblemFloat {
           0% {
-            transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0) rotate(0deg);
           }
           100% {
-            transform: translate3d(10px, -12px, 0);
+            transform: translate3d(0, -14px, 0) rotate(-1deg);
           }
         }
         @keyframes scrollCue {
@@ -158,6 +121,12 @@ export function HeroSection() {
           }
           100% {
             transform: translateY(100%);
+          }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .animate-\[scrollCue_2s_infinite\],
+          .animate-\[emblemFloat_6s_ease-in-out_infinite_alternate\] {
+            animation: none !important;
           }
         }
       `}</style>

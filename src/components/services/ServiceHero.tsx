@@ -13,7 +13,7 @@ export function ServiceHero({ number, title, tagline }: ServiceHeroProps) {
     <header className="border-b border-[#E6E2D9] pb-16 sm:pb-20">
       <div className="flex items-center gap-4 mb-6">
         <span className="font-mono text-xs sm:text-sm font-semibold text-[#D36B4D] tracking-wider">
-          DISCIPLINE {number} {'//'} 06
+          DISCIPLINE {number} OF 06
         </span>
         <span className="w-10 sm:w-16 h-px bg-[#D36B4D]" aria-hidden="true" />
         <span className="font-mono text-xs uppercase tracking-widest text-[#6B6C67]">

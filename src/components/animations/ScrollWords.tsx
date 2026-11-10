@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { Fragment, useEffect, useRef, useState } from 'react';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 
 interface ScrollWordsProps {
@@ -12,6 +12,7 @@ interface ScrollWordsProps {
 /**
  * Editorial scroll-scrubbed text component.
  * Words illuminate progressively from 18% to 100% opacity as the container passes through the viewport.
+ * Guarantees persistent whitespace across mobile browsers and selection states.
  */
 export function ScrollWords({
   text,
@@ -56,19 +57,24 @@ export function ScrollWords({
 
   return (
     <p ref={containerRef} className={className}>
-      {words.map((word, idx) => {
-        const isLit = prefersReduced || idx <= activeCount;
-        return (
-          <span
-            key={idx}
-            className={`inline-block mr-[0.28em] transition-opacity duration-200 ${
-              isLit ? 'opacity-100 text-[#F5F3ED]' : 'opacity-40 text-[#F5F3ED]'
-            } ${wordClassName}`}
-          >
-            {word}
-          </span>
-        );
-      })}
+      <span className="sr-only">{text}</span>
+      <span aria-hidden="true">
+        {words.map((word, idx) => {
+          const isLit = prefersReduced || idx <= activeCount;
+          return (
+            <Fragment key={idx}>
+              <span
+                className={`inline-block mr-[0.22em] transition-opacity duration-200 ${
+                  isLit ? 'opacity-100 text-[#F5F3ED]' : 'opacity-40 text-[#F5F3ED]'
+                } ${wordClassName}`}
+              >
+                {word}
+              </span>
+              {idx < words.length - 1 && ' '}
+            </Fragment>
+          );
+        })}
+      </span>
     </p>
   );
 }

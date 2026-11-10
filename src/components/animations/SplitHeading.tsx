@@ -1,9 +1,10 @@
 'use client';
 
+import type { ReactNode } from 'react';
 import { MaskReveal } from './MaskReveal';
 
 interface SplitHeadingProps {
-  lines: string[];
+  lines: (string | ReactNode)[];
   as?: 'h1' | 'h2' | 'h3';
   className?: string;
   delayMs?: number;
@@ -18,11 +19,12 @@ export function SplitHeading({
   className = '',
   delayMs = 0,
 }: SplitHeadingProps) {
+  const defaultFont = className.includes('font-') ? '' : 'font-space';
   return (
     <MaskReveal
       lines={lines}
       as={as}
-      className={`font-space font-semibold tracking-[-0.04em] text-[#191B1E] leading-[0.98] ${className}`}
+      className={`${defaultFont} font-bold tracking-tight text-[#191B1E] leading-[0.98] ${className}`}
       delayMs={delayMs}
     />
   );

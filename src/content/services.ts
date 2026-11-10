@@ -35,7 +35,7 @@ export const SERVICES: ServiceItem[] = [
     title: 'Software Engineering',
     tagline: 'High-performance architectures, clean engineering and maintainable software systems.',
     description:
-      'We architect, build and maintain complex software applications that demand exceptional performance, resilience and clean technical execution. Rather than patching together pre-built modules or bloated third-party plugins, we engineer robust backend services, scalable REST and GraphQL APIs, and resilient distributed architectures designed to handle concurrent operational loads. Every line of code is written with long-term maintainability in mind, utilizing strict type systems, continuous automated testing pipelines, and explicit domain-driven separation of concerns. From refactoring legacy monoliths into lightweight micro-services to engineering real-time data streaming architectures, our engineering process treats software as mission-critical capital infrastructure.',
+      'We architect, build, and maintain high-performance software systems engineered for scale. Rather than relying on fragile templates or bloated plugins, we deliver clean backend services, robust APIs, and resilient cloud architectures with strict type systems, continuous automated testing, and comprehensive domain-driven separation of concerns.',
     capabilities: [
       'Distributed Backend Architecture',
       'API Engineering & Contract Testing',
@@ -53,7 +53,7 @@ export const SERVICES: ServiceItem[] = [
     ],
     deliverables: [
       'Production-hardened backend binaries and containerised services',
-      'Comprehensive automated test suites (unit, integration, contract)',
+      'Comprehensive automated test suites for unit, integration, and contract verification',
       'Architectural specifications and system sequence diagrams',
       'Zero-downtime database schema migration scripts',
       'Real-time telemetry and structured APM instrumentation',
@@ -91,13 +91,13 @@ export const SERVICES: ServiceItem[] = [
     title: 'Web & Mobile Development',
     tagline: 'Modern web applications and mobile experiences built with reliable, scalable foundations.',
     description:
-      'We craft cross-platform mobile applications and responsive web interfaces that combine tactile responsiveness with bulletproof code. From real-time state synchronization to offline-first local database architectures, our client applications feel instantaneous and dependable across all devices. We engineer client frontends using modern component architecture, strict design token synchronization, and native platform capabilities such as biometric authentication, background geolocation telemetry, and push notification streams. By optimizing the critical rendering path, stripping runtime dependencies, and leveraging edge-rendered streaming, we ensure user interfaces achieve sub-second visual completeness and 60fps gesture animations regardless of network throttling.',
+      'We engineer responsive web platforms and cross-platform mobile applications focused on speed, offline reliability, and tactile polish. Utilizing modern component architectures, edge rendering, and native device capabilities, we deliver seamless interfaces that load instantly and respond smoothly across all screen sizes and network conditions.',
     capabilities: [
       'Full-Stack Next.js Web Platforms',
       'Cross-Platform iOS & Android Engineering',
       'Offline-First Local Synchronization',
       'Real-Time WebSocket & State Streaming',
-      'Progressive Web Applications (PWA)',
+      'Progressive Web Applications',
       'Design Token Systems & Component Libraries',
     ],
     problems: [
@@ -108,7 +108,7 @@ export const SERVICES: ServiceItem[] = [
       'Inaccessible interfaces failing WCAG 2.2 accessibility legal standards',
     ],
     deliverables: [
-      'Production native app binaries (iOS TestFlight & Android App Bundles)',
+      'Production native app binaries for iOS TestFlight and Android App Bundles',
       'Static & streaming Next.js responsive web application',
       'Documented atomic UI component library matching Figma tokens',
       'Encrypted local SQLite/WatermelonDB offline storage engine',
@@ -126,7 +126,7 @@ export const SERVICES: ServiceItem[] = [
       {
         question: 'How do you guarantee cross-browser and cross-device consistency?',
         answer:
-          'We test automated viewport suites across 8 responsive breakpoints (375px to 1920px) on actual mobile and tablet hardware, backed by automated visual regression snapshots in headless Chromium, WebKit, and Firefox.',
+          'We test automated viewport suites across 8 responsive breakpoints from mobile to ultra-wide screens on actual mobile and tablet hardware, backed by automated visual regression snapshots in headless Chromium, WebKit, and Firefox.',
       },
       {
         question: 'Can your web applications work completely offline?',
@@ -147,10 +147,10 @@ export const SERVICES: ServiceItem[] = [
     title: 'Artificial Intelligence',
     tagline: 'Practical AI solutions that integrate computer vision, machine learning and intelligent models.',
     description:
-      'We deploy applied artificial intelligence that produces demonstrable operational utility rather than marketing hype. From edge-deployed convolutional neural networks for micro-defect recognition in sub-30ms frames to domain-specific retrieval-augmented generation pipelines, our AI engineering focuses strictly on accuracy, inference latency, and operational unit economics. We avoid opaque black boxes: our systems feature deterministic confidence intervals, active human-in-the-loop exception fallbacks, and rigorous dataset provenance tracking. Whether fine-tuning vision transformers for industrial inspection or orchestrating multi-agent reasoning graphs over proprietary knowledge silos, we deliver verified production pipelines.',
+      'We deploy applied artificial intelligence that produces demonstrable operational utility rather than marketing hype. From edge computer vision models for micro-defect recognition to domain-specific retrieval-augmented generation pipelines, our AI engineering focuses strictly on accuracy, low inference latency, and verifiable data provenance.',
     capabilities: [
       'Edge Computer Vision & Anomaly Detection',
-      'Retrieval-Augmented Generation (RAG) Pipelines',
+      'Retrieval-Augmented Generation Pipelines',
       'Domain Model Fine-Tuning & Quantization',
       'Automated Data Curation & Synthetic Generation',
       'Real-Time Vector Similarity Search',
@@ -177,12 +177,12 @@ export const SERVICES: ServiceItem[] = [
       {
         question: 'How do you prevent hallucinations in generative AI implementations?',
         answer:
-          'We enforce strict grounded retrieval architectures (RAG) where models are constrained to quote verifiable source documents, backed by automated semantic verification passes and deterministic fallback prompts.',
+          'We enforce strict grounded retrieval architectures where models are constrained to quote verifiable source documents, backed by automated semantic verification passes and deterministic fallback prompts.',
       },
       {
         question: 'Can your models run on local hardware without sending data to third-party clouds?',
         answer:
-          'Yes. We specialize in quantizing models to 4-bit and 8-bit formats (GGUF, TensorRT) capable of local execution on edge servers or embedded devices, guaranteeing complete data sovereignty and zero per-token API charges.',
+          'Yes. We specialize in quantizing models to 4-bit and 8-bit formats using GGUF and TensorRT runtimes capable of local execution on edge servers or embedded devices, guaranteeing complete data sovereignty and zero per-token API charges.',
       },
       {
         question: 'What volume of training data is required to build a custom solution?',
@@ -203,7 +203,7 @@ export const SERVICES: ServiceItem[] = [
     title: 'Automation & Workflows',
     tagline: 'Eliminating operational friction through event-driven automation and intelligent workflows.',
     description:
-      'We eliminate tedious operational bottlenecks by engineering automated pipelines that orchestrate disparate software, hardware sensors, and cloud services into cohesive, self-healing workflows. Rather than fragile no-code zap chains that break silently upon minor API updates, we write resilient, code-first automation engines utilizing event queues, idempotency keys, and automated dead-letter recovery protocols. From multi-modal invoice reconciliation against enterprise ledgers to real-time warehouse dispatch routing based on IoT telemetry, our automation infrastructure handles complex business logic with absolute transparency, complete audit histories, and proactive alerting.',
+      'We eliminate tedious operational bottlenecks by engineering automated pipelines that orchestrate disparate software, hardware telemetry, and cloud services into cohesive, self-healing workflows. Using event queues, idempotency keys, and automated recovery protocols, our code-first automations handle complex business logic with absolute audit transparency.',
     capabilities: [
       'Event-Driven Distributed Choreography',
       'Intelligent OCR & Multi-Format Document Ingestion',
@@ -259,9 +259,9 @@ export const SERVICES: ServiceItem[] = [
     title: 'Cloud & Digital Infrastructure',
     tagline: 'Reliable, scalable and maintainable infrastructure built for modern applications.',
     description:
-      'We configure cloud architectures with security, resilience and cost-efficiency at their core. Using Infrastructure as Code (IaC), automated deployment pipelines, and proactive observability, we build operational foundations that scale predictably without operational drama. We eliminate snowflake servers and manual console tweaking in favor of immutable, version-controlled cloud topology. From configuring multi-region high-availability failover clusters to isolating zero-trust network boundaries and optimizing egress routing, our cloud engineering ensures your systems achieve 99.99% uptime while slashing unnecessary compute overhead.',
+      'We configure cloud architectures with security, resilience, and cost-efficiency at their core. Using Infrastructure as Code, automated CI/CD pipelines, and proactive observability, we build operational foundations that scale predictably without operational drama, ensuring high availability while slashing unnecessary compute overhead.',
     capabilities: [
-      'Infrastructure as Code (Terraform & OpenTofu)',
+      'Infrastructure as Code with Terraform & OpenTofu',
       'Multi-Stage Automated CI/CD Pipelines',
       'Zero-Trust VPC & Cloud Security Architecture',
       'High-Availability Database Clustering & Failover',
@@ -289,7 +289,7 @@ export const SERVICES: ServiceItem[] = [
       {
         question: 'Do you manage client cloud accounts directly or deploy into our infrastructure?',
         answer:
-          'We deploy strictly into your own cloud accounts (AWS, GCP, or Azure). You retain 100% root ownership, cryptographic key control, and IP rights. We never lock clients into proprietary hosting silos.',
+          'We deploy strictly into your own cloud accounts across AWS, GCP, or Azure. You retain 100% root ownership, cryptographic key control, and IP rights. We never lock clients into proprietary hosting silos.',
       },
       {
         question: 'How do you prevent cloud bill shock and control monthly costs?',
@@ -315,7 +315,7 @@ export const SERVICES: ServiceItem[] = [
     title: 'UI/UX & Digital Experiences',
     tagline: 'Thoughtful experiences that combine usability, aesthetics and business objectives.',
     description:
-      'We design human-centred digital interfaces rooted in cognitive clarity, brand distinctiveness, and ergonomic efficiency. Our design work bridges creative artistry and rigorous accessibility to transform complex technical capabilities into intuitive user tools. We reject sterile SaaS templates in favor of bespoke visual languages that embody your brand identity while keeping cognitive load to an absolute minimum. Through rigorous user flow mapping, interactive high-fidelity prototyping, and automated accessibility auditing, we ensure your digital touchpoints command industry authority and deliver frictionless conversion.',
+      'We design human-centred digital interfaces rooted in cognitive clarity, brand distinctiveness, and ergonomic efficiency. Rejecting generic templates in favor of bespoke visual systems, we combine high-fidelity prototyping, systematic design tokens, and strict accessibility compliance to create commanding, conversion-focused digital products.',
     capabilities: [
       'End-to-End Digital Product Design',
       'UX Research & Ergonomic Workflow Optimization',

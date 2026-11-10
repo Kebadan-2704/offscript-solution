@@ -31,7 +31,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const variantClasses = {
       primary:
-        'bg-[#D36B4D] border-[#D36B4D] text-[#191B1E] hover:text-[#F5F3ED] hover:border-[#191B1E]',
+        'btn-studio-primary bg-[#D36B4D] border-[#D36B4D] text-[#191B1E] hover:text-[#F5F3ED] hover:border-[#191B1E]',
       secondary:
         'bg-transparent border-[#191B1E] text-[#191B1E] hover:text-[#F5F3ED]',
       outline:

@@ -8,7 +8,7 @@ import { INSIGHTS } from '@/content/insights';
 import { SITE_CONFIG } from '@/content/site';
 
 export const metadata: Metadata = {
-  title: 'Insights & Technical Journal — OFFSCRIPT SOLUTION',
+  title: 'Insights & Technical Journal',
   description:
     'Deep architectural essays on distributed systems, real-time edge AI evaluation, and disciplined software modernization.',
   alternates: {
@@ -66,7 +66,7 @@ export default function InsightsPage() {
   };
 
   return (
-    <div className="pt-36 sm:pt-44 pb-20 sm:pb-28 bg-[#F5F3ED] text-[#191B1E] min-h-screen">
+    <div className="pt-24 sm:pt-28 pb-10 sm:pb-12 bg-[#F5F3ED] text-[#191B1E] min-h-screen">
       {/* Schema.org Structured Metadata */}
       <script
         type="application/ld+json"
@@ -80,7 +80,8 @@ export default function InsightsPage() {
       <Container>
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
           <SectionHeading
-            index="01 // 06"
+            as="h1"
+            index="01"
             eyebrow="Studio Journal"
             title={
               <>
@@ -97,7 +98,7 @@ export default function InsightsPage() {
             className="inline-flex items-center gap-2 font-mono text-xs text-[#6B6C67] hover:text-[#191B1E] px-3.5 py-2 border border-[#E6E2D9] bg-white transition-colors shrink-0"
           >
             <Rss className="w-3.5 h-3.5 text-[#D36B4D]" />
-            <span>RSS Feed (XML)</span>
+            <span>RSS Feed</span>
           </Link>
         </div>
 

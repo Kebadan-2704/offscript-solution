@@ -8,7 +8,7 @@ import { SERVICES } from '@/content/services';
 import { SITE_CONFIG } from '@/content/site';
 
 export const metadata: Metadata = {
-  title: 'Services & Engineering Disciplines — OFFSCRIPT SOLUTION',
+  title: 'Services & Engineering Disciplines',
   description:
     'Six foundational engineering disciplines designed for performance, resilience, and operational clarity. Bespoke software, intelligent systems, and scalable cloud platforms.',
   alternates: {
@@ -59,7 +59,7 @@ export default function ServicesPage() {
   };
 
   return (
-    <div className="pt-36 sm:pt-44 pb-20 sm:pb-28 bg-[#F5F3ED] text-[#191B1E] min-h-screen">
+    <div className="pt-24 sm:pt-28 pb-10 sm:pb-12 bg-[#F5F3ED] text-[#191B1E] min-h-screen">
       {/* Structured JSON-LD Metadata */}
       <script
         type="application/ld+json"
@@ -73,7 +73,8 @@ export default function ServicesPage() {
       <Container>
         {/* Editorial Section Heading */}
         <SectionHeading
-          index="01 // 06"
+          as="h1"
+          index="01"
           eyebrow="Studio Capabilities & Disciplines"
           title={
             <>
@@ -93,7 +94,7 @@ export default function ServicesPage() {
               {/* Col 1: Discipline Number */}
               <div className="lg:col-span-2">
                 <span className="font-mono text-base font-semibold text-[#D36B4D]">
-                  {service.number} {'//'} 06
+                  {service.number}
                 </span>
               </div>
 
@@ -122,7 +123,7 @@ export default function ServicesPage() {
 
               {/* Col 3: Key Capabilities Preview */}
               <div className="lg:col-span-3">
-                <span className="font-mono text-xs uppercase tracking-widest text-[#92938D] block mb-3 font-semibold">
+                <span className="font-mono text-xs uppercase tracking-widest text-[#52534E] block mb-3 font-semibold">
                   Core Specializations
                 </span>
                 <ul className="space-y-2 text-sm text-[#191B1E]">
@@ -170,7 +171,7 @@ export default function ServicesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="p-8 bg-white border border-[#E6E2D9]">
               <span className="font-mono text-xs text-[#D36B4D] block mb-3 font-semibold">
-                PILLAR // 01
+                PILLAR 01
               </span>
               <h4 className="font-space text-xl font-semibold text-[#191B1E] mb-2">
                 Zero White-Label Code
@@ -182,7 +183,7 @@ export default function ServicesPage() {
 
             <div className="p-8 bg-white border border-[#E6E2D9]">
               <span className="font-mono text-xs text-[#D36B4D] block mb-3 font-semibold">
-                PILLAR // 02
+                PILLAR 02
               </span>
               <h4 className="font-space text-xl font-semibold text-[#191B1E] mb-2">
                 Strict Typing & Testing
@@ -194,7 +195,7 @@ export default function ServicesPage() {
 
             <div className="p-8 bg-white border border-[#E6E2D9]">
               <span className="font-mono text-xs text-[#D36B4D] block mb-3 font-semibold">
-                PILLAR // 03
+                PILLAR 03
               </span>
               <h4 className="font-space text-xl font-semibold text-[#191B1E] mb-2">
                 Speed as a Feature
@@ -206,7 +207,7 @@ export default function ServicesPage() {
 
             <div className="p-8 bg-white border border-[#E6E2D9]">
               <span className="font-mono text-xs text-[#D36B4D] block mb-3 font-semibold">
-                PILLAR // 04
+                PILLAR 04
               </span>
               <h4 className="font-space text-xl font-semibold text-[#191B1E] mb-2">
                 Full Client Sovereignty

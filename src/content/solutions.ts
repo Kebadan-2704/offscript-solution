@@ -32,7 +32,7 @@ export const SOLUTION_GROUPS: SolutionGroup[] = [
     title: 'Applied AI pipelines solving concrete vision and reasoning bottlenecks.',
     tagline: 'Moving AI from speculative experiments into deterministic production systems.',
     whatItIs:
-      'Purpose-built machine learning architectures integrating edge-quantized computer vision, domain-specific retrieval-augmented generation (RAG), and deterministic reasoning engines. Rather than generic API wrappers that break under real-world variation, we build self-hosted and edge-deployed models optimized for latency, low unit cost, and verifiable data sovereignty.',
+      'Purpose-built machine learning architectures integrating edge-quantized computer vision, domain-specific retrieval-augmented generation, and deterministic reasoning engines. Rather than generic API wrappers that break under real-world variation, we build self-hosted and edge-deployed models optimized for latency, low unit cost, and verifiable data sovereignty.',
     typicalProblems: [
       'Visual defect escapes in high-speed manufacturing lines caused by human inspection fatigue',
       'Prohibitive per-token API charges making commercial cloud LLM implementations financially non-viable',
@@ -81,7 +81,7 @@ export const SOLUTION_GROUPS: SolutionGroup[] = [
       'Billing reconciliation errors between payment gateways and internal entitlement engines',
     ],
     howOffscriptApproachesIt:
-      'We engineer multi-tenant platforms using Postgres row-level security (RLS) or schema-per-tenant isolation, combined with asynchronous background job workers (BullMQ/Redis) and edge-rendered Next.js frontends. We build granular audit trails and automated contract tests for all billing and entitlement state changes.',
+      'We engineer multi-tenant platforms using Postgres row-level security or schema-per-tenant isolation, combined with asynchronous background job workers with BullMQ and Redis and edge-rendered Next.js frontends. We build granular audit trails and automated contract tests for all billing and entitlement state changes.',
     exampleConcepts: [
       {
         title: 'Multi-Tenant Operations Dispatch Hub',
@@ -149,7 +149,7 @@ export const SOLUTION_GROUPS: SolutionGroup[] = [
       'High latency and frequent crashes when hundreds of field operators perform concurrent updates',
     ],
     howOffscriptApproachesIt:
-      'We apply Domain-Driven Design (DDD) through direct observation of client operational workflows. We build modular, API-first backends using Go and PostgreSQL, paired with high-performance responsive web interfaces that load in sub-second times and provide comprehensive audit histories.',
+      'We apply Domain-Driven Design through direct observation of client operational workflows. We build modular, API-first backends using Go and PostgreSQL, paired with high-performance responsive web interfaces that load in sub-second times and provide comprehensive audit histories.',
     exampleConcepts: [
       {
         title: 'Distributed Facility & Dispatch Operating Grid',
@@ -183,7 +183,7 @@ export const SOLUTION_GROUPS: SolutionGroup[] = [
       'Security vulnerabilities in IoT devices leaving internal corporate networks exposed to intrusion',
     ],
     howOffscriptApproachesIt:
-      'We write efficient embedded firmware (C/C++) utilizing lightweight protocols like MQTT and CoAP with local ring-buffer caching. In the cloud, we deploy high-throughput ingestion brokers connected to specialized time-series databases (TimescaleDB) with automated spectral anomaly detection.',
+      'We write efficient embedded firmware in C and C++ utilizing lightweight protocols like MQTT and CoAP with local ring-buffer caching. In the cloud, we deploy high-throughput ingestion brokers connected to specialized time-series databases using TimescaleDB with automated spectral anomaly detection.',
     exampleConcepts: [
       {
         title: 'Industrial Environmental Sensor Mesh',

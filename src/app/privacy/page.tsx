@@ -5,7 +5,7 @@ import { SectionHeading } from '@/components/ui/SectionHeading';
 import { SITE_CONFIG } from '@/content/site';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy & Data Governance — OFFSCRIPT SOLUTION',
+  title: 'Privacy Policy & Data Governance',
   description:
     'Our commitment to absolute privacy: zero advertising cookies, cookieless analytics, zero data monetization, and strict confidentiality for all architectural briefs.',
   alternates: {
@@ -41,7 +41,7 @@ export default function PrivacyPage() {
   };
 
   return (
-    <div className="pt-36 sm:pt-44 pb-20 sm:pb-28 bg-[#F5F3ED] text-[#191B1E] min-h-screen">
+    <div className="pt-24 sm:pt-28 pb-10 sm:pb-12 bg-[#F5F3ED] text-[#191B1E] min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
@@ -49,7 +49,7 @@ export default function PrivacyPage() {
 
       <Container>
         <SectionHeading
-          index="01 // 01"
+          index="01"
           eyebrow="Data Governance & Rights"
           title={
             <>
@@ -63,21 +63,21 @@ export default function PrivacyPage() {
           {/* Metadata Rail */}
           <aside className="lg:col-span-4 font-mono text-xs space-y-6">
             <div className="p-6 bg-white border border-[#E6E2D9]">
-              <span className="text-[#92938D] uppercase tracking-wider block mb-2 font-medium">
+              <span className="text-[#52534E] uppercase tracking-wider block mb-2 font-medium">
                 Effective Date
               </span>
               <span className="font-bold text-[#191B1E] text-sm block">January 1, 2026</span>
             </div>
 
             <div className="p-6 bg-white border border-[#E6E2D9]">
-              <span className="text-[#92938D] uppercase tracking-wider block mb-2 font-medium">
+              <span className="text-[#52534E] uppercase tracking-wider block mb-2 font-medium">
                 Governance Scope
               </span>
               <span className="font-bold text-[#191B1E] text-sm block">Global (GDPR, CCPA, UK DPA)</span>
             </div>
 
             <div className="p-6 bg-white border border-[#E6E2D9]">
-              <span className="text-[#92938D] uppercase tracking-wider block mb-2 font-medium">
+              <span className="text-[#52534E] uppercase tracking-wider block mb-2 font-medium">
                 Direct Inquiries
               </span>
               <a
@@ -177,7 +177,7 @@ export default function PrivacyPage() {
               </p>
             </section>
 
-            <div className="pt-8 border-t border-[#E6E2D9] flex items-center justify-between font-mono text-xs text-[#92938D]">
+            <div className="pt-8 border-t border-[#E6E2D9] flex items-center justify-between font-mono text-xs text-[#52534E]">
               <span>Document Ref: OS-PRIVACY-2026.1</span>
               <Link href="/terms" className="text-[#191B1E] hover:text-[#D36B4D] transition-colors">
                 View Terms of Service →

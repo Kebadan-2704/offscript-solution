@@ -10,6 +10,7 @@ interface SectionHeadingProps {
   descriptionClassName?: string;
   className?: string;
   dark?: boolean;
+  as?: 'h1' | 'h2' | 'h3';
 }
 
 /**
@@ -23,16 +24,17 @@ export function SectionHeading({
   descriptionClassName,
   className = '',
   dark = false,
+  as: Component = 'h2',
 }: SectionHeadingProps) {
   return (
-    <div className={cn('mb-14 lg:mb-20', className)}>
+    <div className={cn('mb-6 lg:mb-8', className)}>
       <div className="flex items-center justify-between gap-4 mb-4">
         <Eyebrow dark={dark}>{eyebrow}</Eyebrow>
         {index && (
           <span
             className={cn(
-              'font-mono text-xs tracking-widest font-medium',
-              dark ? 'text-[#92938D]' : 'text-[#5A5B56]'
+              'font-mono text-xs tracking-widest font-semibold',
+              dark ? 'text-[#E6E2D9]/70' : 'text-[#52534E]'
             )}
           >
             {index}
@@ -40,20 +42,20 @@ export function SectionHeading({
         )}
       </div>
 
-      <h2
+      <Component
         className={cn(
           'font-space font-semibold tracking-[-0.035em] text-3xl sm:text-4xl md:text-5xl lg:text-6xl max-w-3xl leading-[1.05] text-balance',
           dark ? 'text-[#F5F3ED]' : 'text-[#191B1E]'
         )}
       >
         {title}
-      </h2>
+      </Component>
 
       {description && (
         <p
           className={cn(
             'mt-6 text-base sm:text-lg max-w-2xl leading-relaxed text-pretty',
-            descriptionClassName || (dark ? 'text-[#E6E2D9]/80' : 'text-[#5A5B56]')
+            descriptionClassName || (dark ? 'text-[#E6E2D9]/90' : 'text-[#52534E]')
           )}
         >
           {description}

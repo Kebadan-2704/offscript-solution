@@ -20,7 +20,7 @@ export function InsightsFilterClient() {
     <div>
       {/* Category Pills Toolbar */}
       <div className="mb-12 sm:mb-16">
-        <span className="font-mono text-xs uppercase tracking-widest text-[#92938D] block mb-3 font-semibold">
+        <span className="font-mono text-xs uppercase tracking-widest text-[#52534E] block mb-3 font-semibold">
           Filter By Research Area
         </span>
         <div
@@ -37,7 +37,7 @@ export function InsightsFilterClient() {
                 data-category-filter={cat}
                 aria-pressed={isActive}
                 onClick={() => setActiveCategory(cat)}
-                className={`font-mono text-xs px-4 py-2 border rounded-full transition-all duration-300 uppercase tracking-wider cursor-pointer focus-visible:outline-2 focus-visible:outline-[#D36B4D] ${
+                className={`font-mono text-xs min-h-[44px] min-w-[44px] inline-flex items-center justify-center px-4 py-2.5 border rounded-full transition-all duration-300 uppercase tracking-wider cursor-pointer focus-visible:outline-2 focus-visible:outline-[#D36B4D] ${
                   isActive
                     ? 'bg-[#191B1E] text-[#F5F3ED] border-[#191B1E]'
                     : 'bg-white text-[#191B1E] border-[#E6E2D9] hover:border-[#191B1E]'
@@ -56,7 +56,7 @@ export function InsightsFilterClient() {
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
             <div className="flex items-center gap-3">
               <span className="font-mono text-xs uppercase tracking-widest text-[#D36B4D] font-semibold">
-                Featured Essay {'//'} {featured.category}
+                Featured Essay · {featured.category}
               </span>
             </div>
             <div className="flex items-center gap-4 font-mono text-xs text-[#92938D]">
@@ -64,7 +64,7 @@ export function InsightsFilterClient() {
                 <Calendar className="w-3.5 h-3.5" />
                 <span>{featured.publishedAt}</span>
               </span>
-              <span aria-hidden="true">{'//'}</span>
+              <span aria-hidden="true" className="text-[#92938D]">·</span>
               <span className="flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5" />
                 <span>{featured.readingTime}</span>
@@ -112,7 +112,7 @@ export function InsightsFilterClient() {
                 <span className="font-mono text-xs text-[#D36B4D] uppercase font-semibold">
                   {article.category}
                 </span>
-                <span className="font-mono text-xs text-[#92938D]">
+                <span className="font-mono text-xs text-[#52534E]">
                   {article.readingTime}
                 </span>
               </div>
@@ -153,6 +153,53 @@ export function InsightsFilterClient() {
             </div>
           </article>
         ))}
+
+        {listItems.length % 2 === 1 && (
+          <article className="p-8 bg-[#191B1E] text-[#F5F3ED] border border-[#191B1E] flex flex-col justify-between group">
+            <div>
+              <div className="flex items-center justify-between gap-4 mb-4">
+                <span className="font-mono text-xs text-[#D36B4D] uppercase font-semibold">
+                  Studio Research Guild
+                </span>
+                <span className="font-mono text-xs text-[#92938D]">
+                  Ongoing Inquiry
+                </span>
+              </div>
+
+              <h3 className="font-space text-2xl font-bold text-[#F5F3ED] mb-3 group-hover:text-[#D36B4D] transition-colors leading-snug">
+                Architectural Advisory & Custom Research Briefs
+              </h3>
+
+              <p className="text-sm text-[#E6E2D9]/80 leading-relaxed mb-6 font-normal">
+                Facing an unaddressed distributed systems constraint, specialized ML inference dilemma, or legacy strangler modernization challenge? Our founding engineers conduct tailored feasibility evaluations and architectural stress-testing.
+              </p>
+            </div>
+
+            <div>
+              <div className="flex flex-wrap gap-1.5 pt-4 border-t border-white/10 mb-4">
+                {['Direct Advisory', 'Zero Vendor Lock-in', 'Fixed Sprints'].map((tag) => (
+                  <span
+                    key={tag}
+                    className="font-mono text-[11px] px-2 py-0.5 bg-white/10 text-[#F5F3ED] border border-white/10"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <div className="flex items-center justify-between font-mono text-xs text-[#E6E2D9]/70">
+                <span>Response SLA: 24h</span>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-1 font-semibold uppercase text-[#D36B4D] hover:text-white transition-colors"
+                >
+                  <span>Request Advisory Brief</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+          </article>
+        )}
       </div>
 
       {filtered.length === 0 && (

@@ -10,7 +10,7 @@ export function TechEcosystemSection() {
     <section className="section-pad bg-[#DCE3DD] border-b border-[#191B1E]/15">
       <Container>
         <SectionHeading
-          index="09 // 11"
+          index="09"
           eyebrow="Technology Ecosystem"
           title="Battle-tested stacks engineered for production."
           description="We select foundational languages and battle-tested frameworks based on execution speed, concurrency, and long-term maintainability."
@@ -18,10 +18,10 @@ export function TechEcosystemSection() {
         />
 
         {/* 3-Column Technology Matrix */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10 mt-12 sm:mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-6 mt-6 sm:mt-8">
           {Object.entries(TECH_ECOSYSTEM).map(([category, tags]) => (
-            <div key={category} className="border-t border-[#191B1E]/20 pt-6">
-              <h3 className="font-mono text-xs uppercase tracking-widest text-[#191B1E]/80 mb-5 font-semibold">
+            <div key={category} className="border-t border-[#191B1E]/20 pt-4">
+              <h3 className="font-mono text-xs uppercase tracking-widest text-[#191B1E] mb-3 font-bold">
                 {category}
               </h3>
 
@@ -40,8 +40,7 @@ export function TechEcosystemSection() {
         </div>
 
         <div className="mt-14 pt-6 border-t border-[#191B1E]/15 font-mono text-xs text-[#191B1E]/85">
-          [Architecture Note]: Technology selection is driven by workload constraints. Custom
-          specializations evaluated per engagement.
+          Technology selection is driven by workload constraints. Custom specializations evaluated per engagement.
         </div>
       </Container>
     </section>

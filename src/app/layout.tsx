@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Space_Grotesk, Inter, Syne, IBM_Plex_Mono } from 'next/font/google';
+import { Space_Grotesk, Inter, Syne, IBM_Plex_Mono, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 
 import { Header } from '@/components/layout/Header';
@@ -7,9 +7,15 @@ import { Footer } from '@/components/layout/Footer';
 import { ScrollProgress } from '@/components/layout/ScrollProgress';
 import { SmoothScroll } from '@/components/layout/SmoothScroll';
 import { Loader } from '@/components/layout/Loader';
-import { BackToTop } from '@/components/layout/BackToTop';
-import { CustomCursor } from '@/components/layout/CustomCursor';
+import { KebaOverlayRoot } from '@/components/keba/KebaOverlayRoot';
 import { SITE_CONFIG } from '@/content/site';
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: '--font-plus-jakarta',
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
+  display: 'swap',
+});
 
 const spaceGrotesk = Space_Grotesk({
   variable: '--font-space-grotesk',
@@ -87,9 +93,30 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${spaceGrotesk.variable} ${inter.variable} ${syne.variable} ${ibmPlexMono.variable} antialiased`}
+      className={`${plusJakartaSans.variable} ${spaceGrotesk.variable} ${inter.variable} ${syne.variable} ${ibmPlexMono.variable} antialiased`}
     >
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                if ('scrollRestoration' in history) {
+                  history.scrollRestoration = 'manual';
+                }
+                window.scrollTo(0, 0);
+                var navEntries = performance.getEntriesByType && performance.getEntriesByType('navigation');
+                var isReload = navEntries && navEntries[0] && navEntries[0].type === 'reload';
+                if (isReload) {
+                  if (window.location.pathname !== '/') {
+                    window.location.replace('/');
+                  } else if (window.location.hash) {
+                    history.replaceState(null, '', '/');
+                  }
+                }
+              } catch (e) {}
+            `,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdOrg) }}
@@ -107,7 +134,7 @@ export default function RootLayout({
         {/* Global UI & motion enhancements */}
         <Loader />
         <ScrollProgress />
-        <CustomCursor />
+        <KebaOverlayRoot />
 
         <SmoothScroll>
           <Header />
@@ -115,7 +142,6 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
-          <BackToTop />
         </SmoothScroll>
       </body>
     </html>

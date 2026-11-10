@@ -5,7 +5,7 @@ import { SectionHeading } from '@/components/ui/SectionHeading';
 import { SITE_CONFIG } from '@/content/site';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service & Engineering Engagements — OFFSCRIPT SOLUTION',
+  title: 'Terms of Service & Engineering Engagements',
   description:
     'Commercial terms governing engineering advisory, software architecture engagements, and 100% client intellectual property ownership.',
   alternates: {
@@ -41,7 +41,7 @@ export default function TermsPage() {
   };
 
   return (
-    <div className="pt-36 sm:pt-44 pb-20 sm:pb-28 bg-[#F5F3ED] text-[#191B1E] min-h-screen">
+    <div className="pt-24 sm:pt-28 pb-10 sm:pb-12 bg-[#F5F3ED] text-[#191B1E] min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
@@ -49,7 +49,7 @@ export default function TermsPage() {
 
       <Container>
         <SectionHeading
-          index="01 // 01"
+          index="01"
           eyebrow="Commercial Governance"
           title={
             <>
@@ -63,21 +63,21 @@ export default function TermsPage() {
           {/* Metadata Rail */}
           <aside className="lg:col-span-4 font-mono text-xs space-y-6">
             <div className="p-6 bg-white border border-[#E6E2D9]">
-              <span className="text-[#92938D] uppercase tracking-wider block mb-2 font-medium">
+              <span className="text-[#52534E] uppercase tracking-wider block mb-2 font-medium">
                 Effective Date
               </span>
               <span className="font-bold text-[#191B1E] text-sm block">January 1, 2026</span>
             </div>
 
             <div className="p-6 bg-white border border-[#E6E2D9]">
-              <span className="text-[#92938D] uppercase tracking-wider block mb-2 font-medium">
+              <span className="text-[#52534E] uppercase tracking-wider block mb-2 font-medium">
                 Core Principle
               </span>
               <span className="font-bold text-[#191B1E] text-sm block">100% Client IP Ownership</span>
             </div>
 
             <div className="p-6 bg-white border border-[#E6E2D9]">
-              <span className="text-[#92938D] uppercase tracking-wider block mb-2 font-medium">
+              <span className="text-[#52534E] uppercase tracking-wider block mb-2 font-medium">
                 Commercial Contact
               </span>
               <a
@@ -159,7 +159,7 @@ export default function TermsPage() {
               </p>
             </section>
 
-            <div className="pt-8 border-t border-[#E6E2D9] flex items-center justify-between font-mono text-xs text-[#92938D]">
+            <div className="pt-8 border-t border-[#E6E2D9] flex items-center justify-between font-mono text-xs text-[#52534E]">
               <span>Document Ref: OS-TERMS-2026.1</span>
               <Link href="/privacy" className="text-[#191B1E] hover:text-[#D36B4D] transition-colors">
                 View Privacy Policy →

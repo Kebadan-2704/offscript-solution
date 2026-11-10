@@ -60,20 +60,24 @@ export function KineticText({
 
   return (
     <Component ref={ref as never} className={className}>
+      <span className="sr-only">{children}</span>
       <motion.span
+        aria-hidden="true"
         variants={containerVariants}
         initial="hidden"
         animate={isInView ? 'visible' : 'hidden'}
         className="inline-flex flex-wrap"
       >
         {items.map((item, i) => (
-          <span
-            key={i}
-            className="inline-block overflow-hidden pb-[0.06em] mr-[0.25em] last:mr-0"
-          >
-            <motion.span variants={itemVariants} className="inline-block">
-              {item}
-            </motion.span>
+          <span key={i} className="inline">
+            <span
+              className="inline-block overflow-hidden pb-[0.06em] mr-[0.22em] last:mr-0"
+            >
+              <motion.span variants={itemVariants} className="inline-block">
+                {item}
+              </motion.span>
+            </span>
+            {mode === 'words' && i < items.length - 1 && ' '}
           </span>
         ))}
       </motion.span>

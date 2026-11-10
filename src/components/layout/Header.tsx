@@ -43,7 +43,7 @@ export function Header() {
             {/* Logo lockup */}
             <Link
               href="/"
-              className="flex items-center gap-3 focus-visible:outline-2 focus-visible:outline-[#D36B4D]"
+              className="flex items-center gap-3 min-h-[44px] focus-visible:outline-2 focus-visible:outline-[#D36B4D]"
               aria-label="OFFSCRIPT SOLUTION - Return to home"
             >
               <div className="relative h-9 lg:h-11 w-auto aspect-[4.8/1] flex items-center">
@@ -54,6 +54,7 @@ export function Header() {
                   height={44}
                   priority
                   className="object-contain w-auto h-full"
+                  style={{ width: 'auto', height: 'auto' }}
                 />
               </div>
             </Link>
@@ -70,7 +71,7 @@ export function Header() {
                     key={link.href}
                     href={link.href}
                     className={`relative py-1 transition-colors duration-300 group ${
-                      isActive ? 'text-[#D36B4D]' : 'text-[#191B1E] hover:text-[#D36B4D]'
+                      isActive ? 'text-[#9B3F27] font-semibold' : 'text-[#191B1E] hover:text-[#9B3F27]'
                     }`}
                   >
                     <span>{link.label}</span>

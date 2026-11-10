@@ -45,7 +45,7 @@ export function WorkDiagram({ diagram }: WorkDiagramProps) {
           >
             <div className="flex items-center justify-between mb-3">
               <span className="font-mono text-[10px] uppercase tracking-wider font-semibold opacity-75">
-                Node 0{idx + 1} {'//'} {node.tier}
+                Node 0{idx + 1} · {node.tier}
               </span>
               <span className="font-mono text-xs opacity-50">→</span>
             </div>

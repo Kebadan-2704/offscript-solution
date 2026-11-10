@@ -20,15 +20,15 @@ const DISCIPLINES: { key: ContactFormData['discipline']; label: string }[] = [
 ];
 
 const BUDGETS: { key: ContactFormData['budget']; label: string }[] = [
-  { key: 'under-25k', label: '< $25,000' },
-  { key: '25k-50k', label: '$25,000 – $50,000' },
-  { key: '50k-100k', label: '$50,000 – $100,000' },
-  { key: '100k-plus', label: '$100,000+' },
+  { key: 'under-25k', label: '< $25,000 · < ₹20 Lakhs' },
+  { key: '25k-50k', label: '$25,000 – $50,000 · ₹20L – ₹40L' },
+  { key: '50k-100k', label: '$50,000 – $100,000 · ₹40L – ₹85L' },
+  { key: '100k-plus', label: '$100,000+ · ₹85 Lakhs+' },
   { key: 'scope-dependent', label: 'To Be Scoped' },
 ];
 
 const TIMELINES: { key: ContactFormData['timeline']; label: string }[] = [
-  { key: 'immediate', label: 'Immediate (< 1 mo)' },
+  { key: 'immediate', label: 'Immediate · Under 1 Mo' },
   { key: 'one-to-three-months', label: '1 – 3 Months' },
   { key: 'three-to-six-months', label: '3 – 6 Months' },
   { key: 'flexible', label: 'Flexible Roadmap' },
@@ -108,7 +108,7 @@ export function ContactFormClient() {
         <div className="flex items-center gap-3 text-[#D36B4D] mb-6">
           <CheckCircle2 className="w-8 h-8" />
           <span className="font-mono text-xs uppercase tracking-widest font-semibold text-[#191B1E]">
-            Transmission Verified {'//'} SLA Protocol Initiated
+            Transmission Verified · SLA Protocol Initiated
           </span>
         </div>
 
@@ -123,15 +123,15 @@ export function ContactFormClient() {
 
         <div className="p-6 bg-[#F5F3ED] border border-[#E6E2D9] max-w-xl mb-10 font-mono text-xs space-y-2">
           <div className="flex justify-between">
-            <span className="text-[#92938D]">Reference ID:</span>
+            <span className="text-[#52534E]">Reference ID:</span>
             <span className="font-bold text-[#191B1E]">{submissionId}</span>
           </div>
           <div className="flex justify-between">
-            <span className="text-[#92938D]">Review SLA:</span>
+            <span className="text-[#52534E]">Review SLA:</span>
             <span className="font-bold text-[#D36B4D]">Within 24 Business Hours</span>
           </div>
           <div className="flex justify-between">
-            <span className="text-[#92938D]">Reviewer:</span>
+            <span className="text-[#52534E]">Reviewer:</span>
             <span className="font-medium text-[#191B1E]">Principal Systems Architect</span>
           </div>
         </div>
@@ -152,7 +152,7 @@ export function ContactFormClient() {
     <form
       onSubmit={handleSubmit(onSubmit)}
       noValidate
-      className="p-8 sm:p-12 lg:p-14 bg-white border border-[#E6E2D9] space-y-10"
+      className="p-8 sm:p-12 lg:p-14 bg-white border border-[#E6E2D9] space-y-12 sm:space-y-14"
     >
       {/* Honeypot field (hidden from users, targeted by bots) */}
       <div className="hidden" aria-hidden="true">
@@ -178,13 +178,13 @@ export function ContactFormClient() {
 
       {/* 1. Discipline Selection */}
       <div>
-        <label className="font-mono text-xs uppercase tracking-widest text-[#191B1E] font-semibold block mb-3">
+        <label className="font-mono text-sm uppercase tracking-wider text-[#191B1E] font-bold block mb-4">
           1. Primary Engineering Discipline <span className="text-[#D36B4D]">*</span>
         </label>
         <div
           role="radiogroup"
           aria-label="Select primary engineering discipline"
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-3.5"
         >
           {DISCIPLINES.map((d) => {
             const isSelected = selectedDiscipline === d.key;
@@ -195,7 +195,7 @@ export function ContactFormClient() {
                 role="radio"
                 aria-checked={isSelected}
                 onClick={() => setValue('discipline', d.key, { shouldValidate: true })}
-                className={`text-left p-3.5 border font-mono text-xs transition-all cursor-pointer ${
+                className={`text-left px-5 py-4 border font-mono text-xs sm:text-sm min-h-[50px] flex items-center transition-all cursor-pointer ${
                   isSelected
                     ? 'border-[#191B1E] bg-[#191B1E] text-[#F5F3ED] font-semibold'
                     : 'border-[#E6E2D9] bg-[#F5F3ED]/40 text-[#191B1E] hover:border-[#191B1E]'
@@ -215,13 +215,13 @@ export function ContactFormClient() {
 
       {/* 2. Budget Scope */}
       <div>
-        <label className="font-mono text-xs uppercase tracking-widest text-[#191B1E] font-semibold block mb-3">
+        <label className="font-mono text-sm uppercase tracking-wider text-[#191B1E] font-bold block mb-4">
           2. Anticipated Capital / Budget Range <span className="text-[#D36B4D]">*</span>
         </label>
         <div
           role="radiogroup"
           aria-label="Select budget range"
-          className="flex flex-wrap gap-2 sm:gap-2.5"
+          className="flex flex-wrap gap-2.5 sm:gap-3"
         >
           {BUDGETS.map((b) => {
             const isSelected = selectedBudget === b.key;
@@ -232,7 +232,7 @@ export function ContactFormClient() {
                 role="radio"
                 aria-checked={isSelected}
                 onClick={() => setValue('budget', b.key, { shouldValidate: true })}
-                className={`px-4 py-2 border font-mono text-xs transition-all cursor-pointer ${
+                className={`px-5 py-3 border font-mono text-xs sm:text-[13px] min-h-[46px] inline-flex items-center justify-center transition-all cursor-pointer ${
                   isSelected
                     ? 'border-[#D36B4D] bg-[#D36B4D] text-[#191B1E] font-bold'
                     : 'border-[#E6E2D9] bg-white text-[#6B6C67] hover:border-[#191B1E] hover:text-[#191B1E]'
@@ -252,13 +252,13 @@ export function ContactFormClient() {
 
       {/* 3. Timeline Scope */}
       <div>
-        <label className="font-mono text-xs uppercase tracking-widest text-[#191B1E] font-semibold block mb-3">
+        <label className="font-mono text-sm uppercase tracking-wider text-[#191B1E] font-bold block mb-4">
           3. Deployment Timeline <span className="text-[#D36B4D]">*</span>
         </label>
         <div
           role="radiogroup"
           aria-label="Select target timeline"
-          className="flex flex-wrap gap-2 sm:gap-2.5"
+          className="flex flex-wrap gap-2.5 sm:gap-3"
         >
           {TIMELINES.map((t) => {
             const isSelected = selectedTimeline === t.key;
@@ -269,7 +269,7 @@ export function ContactFormClient() {
                 role="radio"
                 aria-checked={isSelected}
                 onClick={() => setValue('timeline', t.key, { shouldValidate: true })}
-                className={`px-4 py-2 border font-mono text-xs transition-all cursor-pointer ${
+                className={`px-5 py-3 border font-mono text-xs sm:text-[13px] min-h-[46px] inline-flex items-center justify-center transition-all cursor-pointer ${
                   isSelected
                     ? 'border-[#191B1E] bg-[#191B1E] text-[#F5F3ED] font-semibold'
                     : 'border-[#E6E2D9] bg-white text-[#6B6C67] hover:border-[#191B1E] hover:text-[#191B1E]'
@@ -288,11 +288,11 @@ export function ContactFormClient() {
       </div>
 
       {/* 4. Contact Information Details */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-[#E6E2D9]">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-[#E6E2D9]">
         <div>
           <label
             htmlFor="fullName"
-            className="font-mono text-xs uppercase tracking-wider text-[#191B1E] block mb-2 font-medium"
+            className="font-mono text-xs sm:text-[13px] uppercase tracking-wider text-[#191B1E] block mb-2.5 font-bold"
           >
             Your Full Name <span className="text-[#D36B4D]">*</span>
           </label>
@@ -302,7 +302,7 @@ export function ContactFormClient() {
             placeholder="e.g. Elena Vance"
             aria-invalid={!!errors.fullName}
             aria-describedby={errors.fullName ? 'fullName-error' : undefined}
-            className={`w-full px-4 py-3 bg-[#F5F3ED]/40 border font-inter text-sm text-[#191B1E] placeholder:text-[#92938D] focus:bg-white focus:outline-hidden focus:border-[#191B1E] transition-colors ${
+            className={`w-full min-h-[52px] px-4.5 py-3.5 bg-[#F5F3ED]/40 border font-inter text-base sm:text-[15px] text-[#191B1E] placeholder:text-[#6B6C67] focus:bg-white focus:outline-hidden focus:border-[#191B1E] transition-colors ${
               errors.fullName ? 'border-[#D36B4D]' : 'border-[#E6E2D9]'
             }`}
             {...register('fullName')}
@@ -317,7 +317,7 @@ export function ContactFormClient() {
         <div>
           <label
             htmlFor="workEmail"
-            className="font-mono text-xs uppercase tracking-wider text-[#191B1E] block mb-2 font-medium"
+            className="font-mono text-xs sm:text-[13px] uppercase tracking-wider text-[#191B1E] block mb-2.5 font-bold"
           >
             Work Email <span className="text-[#D36B4D]">*</span>
           </label>
@@ -327,7 +327,7 @@ export function ContactFormClient() {
             placeholder="elena@enterprise.com"
             aria-invalid={!!errors.workEmail}
             aria-describedby={errors.workEmail ? 'workEmail-error' : undefined}
-            className={`w-full px-4 py-3 bg-[#F5F3ED]/40 border font-inter text-sm text-[#191B1E] placeholder:text-[#92938D] focus:bg-white focus:outline-hidden focus:border-[#191B1E] transition-colors ${
+            className={`w-full min-h-[52px] px-4.5 py-3.5 bg-[#F5F3ED]/40 border font-inter text-base sm:text-[15px] text-[#191B1E] placeholder:text-[#6B6C67] focus:bg-white focus:outline-hidden focus:border-[#191B1E] transition-colors ${
               errors.workEmail ? 'border-[#D36B4D]' : 'border-[#E6E2D9]'
             }`}
             {...register('workEmail')}
@@ -342,7 +342,7 @@ export function ContactFormClient() {
         <div>
           <label
             htmlFor="company"
-            className="font-mono text-xs uppercase tracking-wider text-[#191B1E] block mb-2 font-medium"
+            className="font-mono text-xs sm:text-[13px] uppercase tracking-wider text-[#191B1E] block mb-2.5 font-bold"
           >
             Company / Organization <span className="text-[#D36B4D]">*</span>
           </label>
@@ -352,7 +352,7 @@ export function ContactFormClient() {
             placeholder="e.g. Apex Dynamics"
             aria-invalid={!!errors.company}
             aria-describedby={errors.company ? 'company-error' : undefined}
-            className={`w-full px-4 py-3 bg-[#F5F3ED]/40 border font-inter text-sm text-[#191B1E] placeholder:text-[#92938D] focus:bg-white focus:outline-hidden focus:border-[#191B1E] transition-colors ${
+            className={`w-full min-h-[52px] px-4.5 py-3.5 bg-[#F5F3ED]/40 border font-inter text-base sm:text-[15px] text-[#191B1E] placeholder:text-[#6B6C67] focus:bg-white focus:outline-hidden focus:border-[#191B1E] transition-colors ${
               errors.company ? 'border-[#D36B4D]' : 'border-[#E6E2D9]'
             }`}
             {...register('company')}
@@ -367,24 +367,24 @@ export function ContactFormClient() {
 
       {/* 5. Project Brief Scope */}
       <div>
-        <div className="flex items-center justify-between mb-2">
+        <div className="flex items-center justify-between mb-2.5">
           <label
             htmlFor="projectScope"
-            className="font-mono text-xs uppercase tracking-wider text-[#191B1E] font-medium"
+            className="font-mono text-xs sm:text-[13px] uppercase tracking-wider text-[#191B1E] font-bold"
           >
             Technical Mandate & Architecture Context <span className="text-[#D36B4D]">*</span>
           </label>
-          <span className="font-mono text-[11px] text-[#92938D]">
-            {currentScope.length} / 3000 chars (min 20)
+          <span className="font-mono text-xs text-[#52534E]">
+            {currentScope.length} / 3000 chars · min 20
           </span>
         </div>
         <textarea
           id="projectScope"
-          rows={5}
+          rows={6}
           placeholder="Outline the operational bottleneck, data volumes, existing tech stack, or engineering goal you need architected..."
           aria-invalid={!!errors.projectScope}
           aria-describedby={errors.projectScope ? 'projectScope-error' : undefined}
-          className={`w-full px-4 py-3.5 bg-[#F5F3ED]/40 border font-inter text-sm text-[#191B1E] placeholder:text-[#92938D] focus:bg-white focus:outline-hidden focus:border-[#191B1E] transition-colors leading-relaxed ${
+          className={`w-full min-h-[160px] p-4.5 bg-[#F5F3ED]/40 border font-inter text-base sm:text-[15px] text-[#191B1E] placeholder:text-[#6B6C67] focus:bg-white focus:outline-hidden focus:border-[#191B1E] transition-colors leading-relaxed ${
             errors.projectScope ? 'border-[#D36B4D]' : 'border-[#E6E2D9]'
           }`}
           {...register('projectScope')}
@@ -400,15 +400,15 @@ export function ContactFormClient() {
       <div>
         <label
           htmlFor="preferredStack"
-          className="font-mono text-xs uppercase tracking-wider text-[#191B1E] block mb-2 font-medium"
+          className="font-mono text-xs sm:text-[13px] uppercase tracking-wider text-[#191B1E] block mb-2.5 font-bold"
         >
-          Existing Infrastructure / Preferred Stack <span className="text-[#92938D] font-normal">(Optional)</span>
+          Existing Infrastructure / Preferred Stack <span className="text-[#52534E] font-normal">· Optional</span>
         </label>
         <input
           id="preferredStack"
           type="text"
           placeholder="e.g. AWS ECS, Rust, PostgreSQL, PyTorch, Next.js"
-          className="w-full px-4 py-3 bg-[#F5F3ED]/40 border border-[#E6E2D9] font-inter text-sm text-[#191B1E] placeholder:text-[#92938D] focus:bg-white focus:outline-hidden focus:border-[#191B1E] transition-colors"
+          className="w-full min-h-[52px] px-4.5 py-3.5 bg-[#F5F3ED]/40 border border-[#E6E2D9] font-inter text-base sm:text-[15px] text-[#191B1E] placeholder:text-[#6B6C67] focus:bg-white focus:outline-hidden focus:border-[#191B1E] transition-colors"
           {...register('preferredStack')}
         />
       </div>
@@ -423,7 +423,7 @@ export function ContactFormClient() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#D36B4D] text-[#191B1E] font-mono text-xs uppercase tracking-widest font-bold hover:bg-[#191B1E] hover:text-[#F5F3ED] transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+          className="inline-flex items-center justify-center gap-3 min-h-[52px] px-8 py-4 bg-[#D36B4D] text-[#191B1E] font-mono text-xs uppercase tracking-widest font-bold hover:bg-[#191B1E] hover:text-[#F5F3ED] transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
         >
           {isSubmitting ? (
             <>
@@ -432,7 +432,7 @@ export function ContactFormClient() {
             </>
           ) : (
             <>
-              <span>Transmitting Brief</span>
+              <span>Transmit Technical Brief</span>
               <ArrowRight className="w-4 h-4" />
             </>
           )}

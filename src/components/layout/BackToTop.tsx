@@ -30,7 +30,7 @@ export function BackToTop() {
       type="button"
       onClick={scrollToTop}
       aria-label="Scroll back to top of page"
-      className={`fixed right-6 bottom-6 z-40 w-12 h-12 bg-[#191B1E] text-[#F5F3ED] border border-[#E6E2D9]/20 flex items-center justify-center transition-all duration-300 hover:bg-[#D36B4D] hover:text-[#191B1E] hover:border-[#D36B4D] ${
+      className={`fixed right-5 sm:right-6 bottom-22 sm:bottom-24 z-40 w-11 h-11 rounded-full bg-[#191B1E] text-[#F5F3ED] border border-[#E6E2D9]/30 shadow-lg flex items-center justify-center transition-all duration-300 hover:bg-[#D36B4D] hover:text-[#191B1E] hover:border-[#D36B4D] hover:scale-105 ${
         show
           ? 'opacity-100 translate-y-0 pointer-events-auto'
           : 'opacity-0 translate-y-4 pointer-events-none'

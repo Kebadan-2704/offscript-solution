@@ -6,7 +6,7 @@ import { SectionHeading } from '@/components/ui/SectionHeading';
 import { SITE_CONFIG } from '@/content/site';
 
 export const metadata: Metadata = {
-  title: 'About the Studio — Engineered Differently — OFFSCRIPT SOLUTION',
+  title: 'About the Studio — Engineered Differently',
   description:
     'An independent technology studio engineering mission-critical software, applied AI, and cloud infrastructure with zero middleman overhead.',
   alternates: {
@@ -63,7 +63,7 @@ const CORE_PRINCIPLES = [
   {
     icon: Lock,
     title: 'Absolute Data Sovereignty & Zero Vendor Lock-in',
-    text: 'You own 100% of your source code, infrastructure as code (IaC), deployment pipelines, and trained model weights upon completion. We build open architectures that your internal teams can maintain, extend, or migrate without paying studio rents.',
+    text: 'You own 100% of your source code, infrastructure as code, deployment pipelines, and trained model weights upon completion. We build open architectures that your internal teams can maintain, extend, or migrate without paying studio rents.',
   },
 ];
 
@@ -122,7 +122,7 @@ export default function AboutPage() {
   };
 
   return (
-    <div className="pt-36 sm:pt-44 pb-20 sm:pb-28 bg-[#F5F3ED] text-[#191B1E] min-h-screen">
+    <div className="pt-24 sm:pt-28 pb-10 sm:pb-12 bg-[#F5F3ED] text-[#191B1E] min-h-screen">
       {/* Schema.org Structured Metadata */}
       <script
         type="application/ld+json"
@@ -136,7 +136,8 @@ export default function AboutPage() {
       <Container>
         {/* Section 1: Hero & Philosophy */}
         <SectionHeading
-          index="01 // 04"
+          as="h1"
+          index="01"
           eyebrow="Studio Philosophy"
           title={
             <>
@@ -147,7 +148,7 @@ export default function AboutPage() {
         />
 
         {/* Narrative Essay Card */}
-        <section aria-labelledby="origin-narrative" className="mb-20 sm:mb-28">
+        <section aria-labelledby="origin-narrative" className="mb-8 sm:mb-12">
           <div className="p-8 sm:p-14 bg-white border border-[#E6E2D9] max-w-4xl">
             <span className="font-mono text-xs uppercase tracking-widest text-[#D36B4D] font-semibold block mb-4">
               The Studio Ethos
@@ -174,7 +175,7 @@ export default function AboutPage() {
         </section>
 
         {/* Section 2: Operational Disruption (Agency vs OFFSCRIPT) */}
-        <section aria-labelledby="comparison-heading" className="mb-20 sm:mb-28 border-t border-[#E6E2D9] pt-16 sm:pt-20">
+        <section aria-labelledby="comparison-heading" className="mb-8 sm:mb-12 border-t border-[#E6E2D9] pt-8 sm:pt-10">
           <div className="max-w-3xl mb-12">
             <span className="font-mono text-xs uppercase tracking-widest text-[#D36B4D] font-semibold block mb-3">
               Operational Model
@@ -200,9 +201,9 @@ export default function AboutPage() {
                 </div>
 
                 <div className="lg:col-span-4 p-6 sm:p-8 border-b lg:border-b-0 lg:border-r border-[#E6E2D9] flex items-start gap-3">
-                  <X className="w-5 h-5 text-[#92938D] shrink-0 mt-0.5" />
+                  <X className="w-5 h-5 text-[#52534E] shrink-0 mt-0.5" />
                   <div>
-                    <span className="font-mono text-xs uppercase tracking-wider text-[#92938D] block mb-1.5 font-semibold">
+                    <span className="font-mono text-xs uppercase tracking-wider text-[#52534E] block mb-1.5 font-semibold">
                       Typical Agency Default
                     </span>
                     <p className="text-sm text-[#6B6C67] leading-relaxed">
@@ -228,7 +229,7 @@ export default function AboutPage() {
         </section>
 
         {/* Section 3: Engineering Tenets */}
-        <section aria-labelledby="principles-heading" className="mb-20 sm:mb-28 border-t border-[#E6E2D9] pt-16 sm:pt-20">
+        <section aria-labelledby="principles-heading" className="mb-8 sm:mb-12 border-t border-[#E6E2D9] pt-8 sm:pt-10">
           <div className="max-w-3xl mb-12">
             <span className="font-mono text-xs uppercase tracking-widest text-[#D36B4D] font-semibold block mb-3">
               Engineering Disciplines
@@ -270,7 +271,7 @@ export default function AboutPage() {
         </section>
 
         {/* Section 4: Studio Facts Matrix */}
-        <section aria-labelledby="facts-heading" className="mb-20 sm:mb-28 border-t border-[#E6E2D9] pt-16 sm:pt-20">
+        <section aria-labelledby="facts-heading" className="mb-10 sm:mb-12 border-t border-[#E6E2D9] pt-8 sm:pt-10">
           <div className="max-w-3xl mb-12">
             <span className="font-mono text-xs uppercase tracking-widest text-[#D36B4D] font-semibold block mb-3">
               Transparent Governance
@@ -286,7 +287,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {STUDIO_FACTS.map((fact, idx) => (
               <div key={idx} className="p-6 sm:p-8 bg-white border border-[#E6E2D9]">
-                <span className="font-mono text-[11px] uppercase tracking-wider text-[#92938D] block mb-2 font-medium">
+                <span className="font-mono text-[11px] uppercase tracking-wider text-[#52534E] block mb-2 font-medium">
                   {fact.label}
                 </span>
                 <span className="font-space text-lg sm:text-xl font-bold text-[#191B1E]">
@@ -298,22 +299,22 @@ export default function AboutPage() {
         </section>
 
         {/* Final CTA Strip */}
-        <section className="p-8 sm:p-14 bg-[#191B1E] text-[#F5F3ED] border border-[#191B1E] flex flex-col md:flex-row md:items-center justify-between gap-8">
-          <div>
+        <section className="mt-16 sm:mt-20 mb-8 sm:mb-12 p-8 sm:p-14 bg-[#191B1E] text-[#F5F3ED] border border-[#191B1E] flex flex-col lg:flex-row lg:items-center justify-between gap-8">
+          <div className="max-w-xl">
             <span className="font-mono text-xs uppercase tracking-widest text-[#D36B4D] font-semibold block mb-2">
               Ready To Build Differently?
             </span>
-            <h3 className="font-space text-2xl sm:text-4xl font-bold tracking-tight mb-2">
+            <h3 className="font-space text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight mb-3 text-pretty">
               Let&apos;s evaluate your architectural requirements.
             </h3>
-            <p className="text-sm text-[#E6E2D9]/80 font-normal">
+            <p className="text-sm text-[#E6E2D9]/80 font-normal leading-relaxed">
               Direct consultation with our founding systems architect. Response SLA within 24 hours.
             </p>
           </div>
 
           <Link
             href="/contact"
-            className="inline-flex items-center gap-3 px-8 py-4 bg-[#D36B4D] text-[#191B1E] font-mono text-xs uppercase tracking-widest font-bold hover:bg-white hover:text-[#191B1E] transition-colors shrink-0"
+            className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#D36B4D] text-[#191B1E] font-mono text-xs uppercase tracking-widest font-bold hover:bg-white hover:text-[#191B1E] transition-colors shrink-0 min-h-[48px]"
           >
             <span>Start Technical Brief</span>
             <ArrowRight className="w-4 h-4" />

@@ -7,7 +7,7 @@ import { SOLUTION_GROUPS, FOUR_STAGE_APPROACH } from '@/content/solutions';
 import { SITE_CONFIG } from '@/content/site';
 
 export const metadata: Metadata = {
-  title: 'Custom Architecture Solutions — OFFSCRIPT SOLUTION',
+  title: 'Custom Architecture Solutions',
   description:
     'Six custom architectural solution domains: AI-Powered Products, SaaS Applications, Intelligent Business Automation, Custom Enterprise Platforms, IoT & Connected Systems, and Digital Product Engineering.',
   alternates: {
@@ -57,7 +57,7 @@ export default function SolutionsPage() {
   };
 
   return (
-    <div className="pt-36 sm:pt-44 pb-20 sm:pb-28 bg-[#F5F3ED] text-[#191B1E] min-h-screen">
+    <div className="pt-24 sm:pt-28 pb-10 sm:pb-12 bg-[#F5F3ED] text-[#191B1E] min-h-screen">
       {/* Schema.org Structured Metadata */}
       <script
         type="application/ld+json"
@@ -71,7 +71,7 @@ export default function SolutionsPage() {
       <Container>
         {/* Editorial Section Heading */}
         <SectionHeading
-          index="01 // 06"
+          index="01"
           eyebrow="Architectural Solutions"
           title={
             <>
@@ -108,7 +108,7 @@ export default function SolutionsPage() {
                 <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
                   <div className="flex items-center gap-3">
                     <span className="font-mono text-xs uppercase tracking-widest text-[#D36B4D] font-semibold">
-                      0{idx + 1} {'//'} {solution.category}
+                      0{idx + 1} · {solution.category}
                     </span>
                     <span className="w-8 h-px bg-[#D36B4D]" aria-hidden="true" />
                   </div>
@@ -195,7 +195,7 @@ export default function SolutionsPage() {
                 {/* Example Concepts (Labelled Concept) */}
                 <div className="pt-8 border-t border-current/15">
                   <h3 className="font-mono text-xs uppercase tracking-widest text-[#D36B4D] mb-6 font-semibold">
-                    Representative Solution Architectures (Labelled Concept)
+                    Representative Solution Architectures
                   </h3>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -284,7 +284,7 @@ export default function SolutionsPage() {
               >
                 <div>
                   <span className="font-mono text-sm font-semibold text-[#D36B4D] block mb-3">
-                    STAGE // {stage.stage}
+                    STAGE {stage.stage}
                   </span>
                   <h4 className="font-space text-2xl font-bold text-[#191B1E] mb-2">
                     {stage.name}
@@ -298,7 +298,7 @@ export default function SolutionsPage() {
                 </div>
 
                 <div className="pt-4 border-t border-[#E6E2D9]">
-                  <span className="font-mono text-[11px] uppercase tracking-wider text-[#92938D] block mb-2 font-semibold">
+                  <span className="font-mono text-[11px] uppercase tracking-wider text-[#52534E] block mb-2 font-semibold">
                     Key Artifacts:
                   </span>
                   <ul className="space-y-1.5 text-xs text-[#191B1E]">

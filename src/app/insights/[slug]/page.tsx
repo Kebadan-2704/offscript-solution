@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: InsightPageProps) {
   const pageUrl = `${SITE_CONFIG.url}/insights/${article.slug}`;
 
   return {
-    title: `${article.title} — OFFSCRIPT SOLUTION`,
+    title: article.title,
     description: article.description,
     alternates: {
       canonical: pageUrl,
@@ -132,7 +132,7 @@ export default async function InsightDetailPage({ params }: InsightPageProps) {
   };
 
   return (
-    <article className="pt-36 sm:pt-44 pb-20 sm:pb-28 bg-[#F5F3ED] text-[#191B1E] min-h-screen">
+    <article className="pt-24 sm:pt-28 pb-10 sm:pb-12 bg-[#F5F3ED] text-[#191B1E] min-h-screen">
       {/* Sticky Reading Progress Indicator */}
       <ReadingProgress />
 
@@ -177,7 +177,7 @@ export default async function InsightDetailPage({ params }: InsightPageProps) {
                 <Calendar className="w-3.5 h-3.5 text-[#92938D]" />
                 <span>{article.publishedAt}</span>
               </span>
-              <span aria-hidden="true">{'//'}</span>
+              <span aria-hidden="true" className="text-[#92938D]">·</span>
               <span className="flex items-center gap-1.5">
                 <Clock className="w-3.5 h-3.5 text-[#92938D]" />
                 <span>{article.readingTime}</span>

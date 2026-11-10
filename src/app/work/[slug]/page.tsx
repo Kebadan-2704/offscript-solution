@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: WorkPageProps) {
   const pageUrl = `${SITE_CONFIG.url}/work/${project.slug}`;
 
   return {
-    title: `${project.title} — Case Study — OFFSCRIPT SOLUTION`,
+    title: `${project.title} — Case Study`,
     description: project.summary,
     alternates: {
       canonical: pageUrl,
@@ -104,7 +104,7 @@ export default async function WorkDetailPage({ params }: WorkPageProps) {
   };
 
   return (
-    <article className="pt-36 sm:pt-44 pb-20 sm:pb-28 bg-[#F5F3ED] text-[#191B1E] min-h-screen">
+    <article className="pt-24 sm:pt-28 pb-10 sm:pb-12 bg-[#F5F3ED] text-[#191B1E] min-h-screen">
       {softwareJsonLd && (
         <script
           type="application/ld+json"
@@ -127,18 +127,6 @@ export default async function WorkDetailPage({ params }: WorkPageProps) {
             <span>Back to Selected Work</span>
           </Link>
         </div>
-
-        {/* 2. Placeholder Ribbon (Visible for placeholder entries per PART 6.5) */}
-        {project.placeholder && (
-          <div className="mb-8 p-4 bg-[#D36B4D]/10 border-l-4 border-[#D36B4D] font-mono text-xs text-[#191B1E] flex items-center justify-between">
-            <span>
-              [Placeholder Notice]: Template case study for client review. Replace with verified production case study data in <code className="font-bold">src/content/work.ts</code> prior to launch.
-            </span>
-            <span className="font-bold uppercase tracking-wider text-[#D36B4D]">
-              Archived / Concept
-            </span>
-          </div>
-        )}
 
         {/* 3. Hero Header */}
         <header className="border-b border-[#E6E2D9] pb-14 sm:pb-20">
@@ -284,14 +272,14 @@ export default async function WorkDetailPage({ params }: WorkPageProps) {
               id="results-heading"
               className="font-mono text-xs uppercase tracking-widest text-[#D36B4D] font-semibold"
             >
-              {project.verified ? 'Verified Results & Telemetry' : 'Target Architecture Metrics (Concept)'}
+              {project.verified ? 'Verified Results & Telemetry' : 'Target Architecture Metrics'}
             </h3>
           </div>
 
           <p className="text-sm text-[#6B6C67] mb-8">
             {project.verified
               ? 'Empirical performance metrics measured in production environment.'
-              : '[Honest Reporting]: Target specifications modeled for this concept architecture. Verified commercial metrics will replace these targets upon client sign-off.'}
+              : 'Target specifications modeled for this architecture.'}
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

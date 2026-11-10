@@ -35,7 +35,7 @@ export function ServiceCta({ serviceTitle }: ServiceCtaProps) {
 
           <div className="flex items-center gap-6 font-mono text-xs text-[#92938D]">
             <span>SLA: 24–48H RESPONSE</span>
-            <span aria-hidden="true">{'//'}</span>
+            <span aria-hidden="true" className="text-[#92938D]">·</span>
             <span>NDA AVAILABLE</span>
           </div>
         </div>

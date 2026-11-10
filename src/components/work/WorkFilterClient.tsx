@@ -23,7 +23,7 @@ export function WorkFilterClient() {
       <div className="space-y-6 mb-12 sm:mb-16">
         {/* Category Filters */}
         <div>
-          <span className="font-mono text-xs uppercase tracking-widest text-[#92938D] block mb-3 font-semibold">
+          <span className="font-mono text-xs uppercase tracking-widest text-[#52534E] block mb-3 font-semibold">
             Filter By Discipline
           </span>
           <div
@@ -39,7 +39,7 @@ export function WorkFilterClient() {
                   type="button"
                   aria-pressed={isActive}
                   onClick={() => setActiveCategory(f.key)}
-                  className={`font-mono text-xs min-h-[44px] px-5 py-2.5 inline-flex items-center border rounded-full transition-all duration-300 uppercase tracking-wider cursor-pointer focus-visible:outline-2 focus-visible:outline-[#D36B4D] ${
+                  className={`font-mono text-xs min-h-[44px] min-w-[44px] justify-center px-5 py-2.5 inline-flex items-center border rounded-full transition-all duration-300 uppercase tracking-wider cursor-pointer focus-visible:outline-2 focus-visible:outline-[#D36B4D] ${
                     isActive
                       ? 'bg-[#191B1E] text-[#F5F3ED] border-[#191B1E]'
                       : 'bg-white text-[#191B1E] border-[#E6E2D9] hover:border-[#191B1E]'
@@ -54,7 +54,7 @@ export function WorkFilterClient() {
 
         {/* Status Filters */}
         <div>
-          <span className="font-mono text-xs uppercase tracking-widest text-[#92938D] block mb-3 font-semibold">
+          <span className="font-mono text-xs uppercase tracking-widest text-[#52534E] block mb-3 font-semibold">
             Filter By Status
           </span>
           <div
@@ -70,7 +70,7 @@ export function WorkFilterClient() {
                   type="button"
                   aria-pressed={isActive}
                   onClick={() => setActiveStatus(f.key)}
-                  className={`font-mono text-xs min-h-[44px] px-4 py-2.5 inline-flex items-center border transition-all duration-300 uppercase tracking-wider cursor-pointer focus-visible:outline-2 focus-visible:outline-[#D36B4D] ${
+                  className={`font-mono text-xs min-h-[44px] min-w-[44px] justify-center px-4 py-2.5 inline-flex items-center border transition-all duration-300 uppercase tracking-wider cursor-pointer focus-visible:outline-2 focus-visible:outline-[#D36B4D] ${
                     isActive
                       ? 'bg-[#D36B4D] text-[#191B1E] border-[#D36B4D] font-bold'
                       : 'bg-transparent text-[#6B6C67] border-[#E6E2D9] hover:border-[#191B1E] hover:text-[#191B1E]'
@@ -172,7 +172,7 @@ export function WorkFilterClient() {
 
                   <Link
                     href={`/work/${project.slug}`}
-                    className="inline-flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-wider text-[#191B1E] hover:text-[#D36B4D] transition-colors"
+                    className="inline-flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-wider text-[#191B1E] hover:text-[#9B3F27] transition-colors min-h-[44px] py-2"
                   >
                     <span>View Architectural Case Study</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />

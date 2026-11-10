@@ -66,7 +66,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
       {/* Top action row */}
       <div className="flex items-center justify-between border-b border-[#E6E2D9]/15 pb-6">
         <span className="font-mono text-xs tracking-widest text-[#92938D] uppercase">
-          Menu // OFFSCRIPT SOLUTION
+          Menu · OFFSCRIPT SOLUTION
         </span>
         <button
           ref={closeButtonRef}
@@ -88,7 +88,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               key={link.href}
               href={link.href}
               onClick={onClose}
-              className={`font-space text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight transition-all duration-300 flex items-center justify-between py-2 border-b border-[#E6E2D9]/10 group ${
+              className={`font-space text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight transition-all duration-300 flex items-center justify-between py-3.5 min-h-[52px] border-b border-[#E6E2D9]/10 group ${
                 isActive ? 'text-[#D36B4D] pl-3' : 'text-[#F5F3ED] hover:text-[#D36B4D] hover:pl-3'
               }`}
               style={{

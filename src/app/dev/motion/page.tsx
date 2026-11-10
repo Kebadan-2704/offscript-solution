@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Eyebrow } from '@/components/ui/Eyebrow';
@@ -10,6 +11,7 @@ import { Counter } from '@/components/animations/Counter';
 import { Parallax } from '@/components/animations/Parallax';
 import { DrawPath } from '@/components/animations/DrawPath';
 import { StaggerGroup } from '@/components/animations/StaggerGroup';
+import { KebaDevSandbox } from '@/components/keba/KebaDevSandbox';
 
 export const metadata: Metadata = {
   title: 'Animation Sandbox (Dev Only)',
@@ -24,6 +26,9 @@ export const metadata: Metadata = {
  * Excluded from search index and sitemaps via robots metadata.
  */
 export default function MotionDevPage() {
+  if (process.env.NODE_ENV === 'production') {
+    notFound();
+  }
 
   const sampleMarquee = [
     'SOFTWARE ENGINEERING',
@@ -141,17 +146,17 @@ export default function MotionDevPage() {
           <Eyebrow>06 / Staggered Card Entrance</Eyebrow>
           <StaggerGroup className="grid grid-cols-1 md:grid-cols-3 gap-6 my-6">
             <div className="p-6 border border-[#E6E2D9] bg-[#F5F3ED]">
-              <span className="font-mono text-xs text-[#D36B4D]">01 // STAGGER</span>
+              <span className="font-mono text-xs text-[#D36B4D]">01 · STAGGER</span>
               <h3 className="font-space text-xl font-semibold mt-2">First Card</h3>
               <p className="text-sm text-[#6B6C67] mt-2">Enters at base delay.</p>
             </div>
             <div className="p-6 border border-[#E6E2D9] bg-[#F5F3ED]">
-              <span className="font-mono text-xs text-[#D36B4D]">02 // STAGGER</span>
+              <span className="font-mono text-xs text-[#D36B4D]">02 · STAGGER</span>
               <h3 className="font-space text-xl font-semibold mt-2">Second Card</h3>
               <p className="text-sm text-[#6B6C67] mt-2">Enters after 90ms offset.</p>
             </div>
             <div className="p-6 border border-[#E6E2D9] bg-[#F5F3ED]">
-              <span className="font-mono text-xs text-[#D36B4D]">03 // STAGGER</span>
+              <span className="font-mono text-xs text-[#D36B4D]">03 · STAGGER</span>
               <h3 className="font-space text-xl font-semibold mt-2">Third Card</h3>
               <p className="text-sm text-[#6B6C67] mt-2">Enters after 180ms offset.</p>
             </div>
@@ -168,6 +173,14 @@ export default function MotionDevPage() {
               </span>
             </div>
           </Parallax>
+        </div>
+
+        {/* 08. KEBA AI — Core 3D Engine & Character Harness (Milestone 1) */}
+        <div className="mb-12">
+          <div className="mb-4">
+            <Eyebrow>08 / KEBA AI — 3D Character Engine & Animation Sandbox</Eyebrow>
+          </div>
+          <KebaDevSandbox />
         </div>
       </Container>
 

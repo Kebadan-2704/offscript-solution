@@ -6,7 +6,7 @@ import { ContactFormClient } from '@/components/contact/ContactFormClient';
 import { SITE_CONFIG } from '@/content/site';
 
 export const metadata: Metadata = {
-  title: 'Direct Technical Consultation — OFFSCRIPT SOLUTION',
+  title: 'Direct Technical Consultation',
   description:
     'Initiate a direct engineering consultation with our systems architects. Zero sales hand-offs, no account middle layers, 24-hour response SLA.',
   alternates: {
@@ -62,7 +62,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="pt-36 sm:pt-44 pb-20 sm:pb-28 bg-[#F5F3ED] text-[#191B1E] min-h-screen">
+    <div className="pt-24 sm:pt-28 pb-10 sm:pb-12 bg-[#F5F3ED] text-[#191B1E] min-h-screen">
       {/* Schema.org Structured Data */}
       <script
         type="application/ld+json"
@@ -76,7 +76,8 @@ export default function ContactPage() {
       <Container>
         {/* Editorial Heading */}
         <SectionHeading
-          index="01 // 01"
+          as="h1"
+          index="01"
           eyebrow="Direct Technical Consultation"
           title={
             <>
@@ -99,7 +100,7 @@ export default function ContactPage() {
             >
               {SITE_CONFIG.contact.email}
             </a>
-            <p className="text-[11px] text-[#92938D] mt-2 font-inter">
+            <p className="text-[11px] text-[#52534E] mt-2 font-inter">
               PGP keys available upon request for sensitive enterprise briefs.
             </p>
           </div>
@@ -110,7 +111,7 @@ export default function ContactPage() {
               <span className="uppercase tracking-wider">Response Protocol</span>
             </div>
             <span className="font-bold text-[#191B1E] block">24 Business Hours</span>
-            <p className="text-[11px] text-[#92938D] mt-2 font-inter">
+            <p className="text-[11px] text-[#52534E] mt-2 font-inter">
               Every technical brief is assessed directly by a founding engineer.
             </p>
           </div>
@@ -121,7 +122,7 @@ export default function ContactPage() {
               <span className="uppercase tracking-wider">Bilateral NDA</span>
             </div>
             <span className="font-bold text-[#191B1E] block">Mutual Protection</span>
-            <p className="text-[11px] text-[#92938D] mt-2 font-inter">
+            <p className="text-[11px] text-[#52534E] mt-2 font-inter">
               Standard mutual NDA executed prior to code auditing or proprietary data transfer.
             </p>
           </div>
@@ -132,7 +133,7 @@ export default function ContactPage() {
               <span className="uppercase tracking-wider">Operating Model</span>
             </div>
             <span className="font-bold text-[#191B1E] block">Global Studio Network</span>
-            <p className="text-[11px] text-[#92938D] mt-2 font-inter">
+            <p className="text-[11px] text-[#52534E] mt-2 font-inter">
               Remote-native engineering team operating across UTC-8 to UTC+5:30.
             </p>
           </div>
