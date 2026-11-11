@@ -162,69 +162,79 @@ export function KebaChatDrawer() {
   }
 
   return (
-    <div
-      role="dialog"
-      aria-modal="true"
-      aria-label="KEBA AI Assistant"
-      className="fixed z-[50] pointer-events-auto inset-x-0 bottom-0 sm:inset-x-auto sm:right-6 sm:bottom-6 w-full sm:w-[440px] max-w-full sm:max-w-[calc(100vw-32px)] h-[85vh] sm:h-[620px] max-h-[85vh] sm:max-h-[calc(100vh-80px)] flex flex-col bg-[#F5F3ED] border-t-2 sm:border-2 border-[#191B1E] rounded-t-2xl sm:rounded-2xl shadow-2xl sm:shadow-[8px_8px_0px_#191B1E] animate-in fade-in slide-in-from-bottom-6 duration-300 overflow-hidden"
-    >
-      {/* 1. Header with Avatar, Title, Clear, Close */}
-      <ChatHeader
-        onClose={closeChat}
-        onClearHistory={handleClearHistory}
-        messageCount={messages.length}
+    <>
+      {/* 1. Backdrop for mobile / small screen modal focus */}
+      <div
+        aria-hidden="true"
+        onClick={closeChat}
+        className="fixed inset-0 bg-black/40 backdrop-blur-xs z-[65] sm:hidden animate-in fade-in duration-200 pointer-events-auto"
       />
 
-      {/* 2. Optional Business Enquiry Intake Wizard */}
-      {isEnquiryOpen ? (
-        <div className="flex-1 overflow-y-auto">
-          <ChatEnquiryFlow
-            onClose={() => setIsEnquiryOpen(false)}
-            onSuccess={handleEnquirySuccess}
-          />
-        </div>
-      ) : (
-        <>
-          {/* 3. Message History with Auto-scroll & Action Buttons */}
-          <ChatMessageList
-            messages={messages}
-            isLoading={isLoading}
-            error={error}
-            onRetry={handleRetry}
-            onExecuteAction={handleExecuteAction}
-          />
+      {/* 2. Elevated Chat Drawer: Elevated above navbar (z-[70]) with guaranteed top headroom */}
+      <div
+        role="dialog"
+        aria-modal="true"
+        aria-label="KEBA AI Assistant"
+        className="fixed z-[70] pointer-events-auto inset-x-0 bottom-0 sm:inset-x-auto sm:right-6 sm:bottom-6 w-full sm:w-[440px] max-w-full sm:max-w-[calc(100vw-32px)] h-[82vh] sm:h-[580px] max-h-[82vh] sm:max-h-[calc(100vh-104px)] flex flex-col bg-[#F5F3ED] border-t-2 sm:border-2 border-[#191B1E] rounded-t-2xl sm:rounded-2xl shadow-2xl sm:shadow-[8px_8px_0px_#191B1E] animate-in fade-in slide-in-from-bottom-6 duration-300 overflow-hidden"
+      >
+        {/* Header with Avatar, Title, Clear, Close */}
+        <ChatHeader
+          onClose={closeChat}
+          onClearHistory={handleClearHistory}
+          messageCount={messages.length}
+        />
 
-          {/* 4. Quick Suggestion Chips (visible when history is short) */}
-          {messages.length <= 1 && (
-            <ChatSuggestions
-              onSelectPrompt={handleSendMessage}
-              disabled={isLoading}
+        {/* Optional Business Enquiry Intake Wizard */}
+        {isEnquiryOpen ? (
+          <div className="flex-1 overflow-y-auto">
+            <ChatEnquiryFlow
+              onClose={() => setIsEnquiryOpen(false)}
+              onSuccess={handleEnquirySuccess}
             />
-          )}
-        </>
-      )}
+          </div>
+        ) : (
+          <>
+            {/* Message History with Auto-scroll & Action Buttons */}
+            <ChatMessageList
+              messages={messages}
+              isLoading={isLoading}
+              error={error}
+              onRetry={handleRetry}
+              onExecuteAction={handleExecuteAction}
+            />
 
-      {/* 5. Business Enquiry Entry Pill */}
-      {!isEnquiryOpen && (
-        <div className="px-4 py-1.5 bg-[#F5F3ED] border-t border-[#191B1E]/10 flex items-center justify-between">
-          <span className="text-[10px] font-mono text-[#191B1E]/60">
-            Have a project in mind?
-          </span>
-          <button
-            type="button"
-            onClick={() => setIsEnquiryOpen(true)}
-            className="text-[11px] font-mono font-semibold text-[#D36B4D] hover:underline cursor-pointer"
-          >
-            Start Consultation Brief →
-          </button>
-        </div>
-      )}
+            {/* Quick Suggestion Chips (visible when history is short) */}
+            {messages.length <= 1 && (
+              <ChatSuggestions
+                onSelectPrompt={handleSendMessage}
+                disabled={isLoading}
+              />
+            )}
+          </>
+        )}
 
-      {/* 6. Keyboard-first Input Bar */}
-      <ChatInput
-        onSendMessage={handleSendMessage}
-        isLoading={isLoading}
-      />
-    </div>
+        {/* Business Enquiry Entry Pill */}
+        {!isEnquiryOpen && (
+          <div className="px-4 py-1.5 bg-[#F5F3ED] border-t border-[#191B1E]/10 flex items-center justify-between">
+            <span className="text-[10px] font-mono text-[#191B1E]/60">
+              Have a project in mind?
+            </span>
+            <button
+              type="button"
+              onClick={() => setIsEnquiryOpen(true)}
+              className="text-[11px] font-mono font-semibold text-[#D36B4D] hover:underline cursor-pointer"
+            >
+              Start Consultation Brief →
+            </button>
+          </div>
+        )}
+
+        {/* Keyboard-first Input Bar */}
+        <ChatInput
+          onSendMessage={handleSendMessage}
+          isLoading={isLoading}
+        />
+      </div>
+    </>
   );
 }

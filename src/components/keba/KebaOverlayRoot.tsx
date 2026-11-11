@@ -27,6 +27,7 @@ export function KebaOverlayRoot() {
   const pathname = usePathname();
   const isHomePage = pathname === '/';
   const overlayMode = useKebaStore((s) => s.overlayMode);
+  const isChatOpen = useKebaStore((s) => s.isChatOpen);
 
   // Tour controller hook
   const {
@@ -54,7 +55,7 @@ export function KebaOverlayRoot() {
   return (
     <aside
       aria-label="KEBA AI Interactive Virtual Representative"
-      className="fixed inset-0 pointer-events-none z-[45]"
+      className={`fixed inset-0 pointer-events-none ${isChatOpen ? 'z-[70]' : 'z-[45]'}`}
     >
       {/* 1. Active Section Spotlight Highlight - Home page only */}
       {isHomePage && (
