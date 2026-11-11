@@ -50,7 +50,11 @@ export function ChatMessageList({
       role="log"
       aria-label="Conversation with Keba AI"
       aria-live="polite"
-      className="flex-1 overflow-y-auto px-4 py-3 space-y-1 overscroll-contain [scrollbar-width:thin] [scrollbar-color:#D36B4D_transparent]"
+      data-lenis-prevent
+      onWheel={(e) => e.stopPropagation()}
+      onTouchMove={(e) => e.stopPropagation()}
+      tabIndex={0}
+      className="flex-1 overflow-y-auto px-4 py-3 space-y-1 overscroll-contain focus:outline-hidden [scrollbar-width:thin] [scrollbar-color:#D36B4D_transparent]"
     >
       {/* Default Initial Welcome Message if empty */}
       {messages.length === 0 && <ChatMessage message={INITIAL_WELCOME_MESSAGE} />}

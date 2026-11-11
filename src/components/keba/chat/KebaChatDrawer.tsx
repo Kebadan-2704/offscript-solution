@@ -175,6 +175,7 @@ export function KebaChatDrawer() {
         role="dialog"
         aria-modal="true"
         aria-label="KEBA AI Assistant"
+        data-lenis-prevent
         className="fixed z-[70] pointer-events-auto inset-x-0 bottom-0 sm:inset-x-auto sm:right-6 sm:bottom-6 w-full sm:w-[440px] max-w-full sm:max-w-[calc(100vw-32px)] h-[82vh] sm:h-[580px] max-h-[82vh] sm:max-h-[calc(100vh-104px)] flex flex-col bg-[#F5F3ED] border-t-2 sm:border-2 border-[#191B1E] rounded-t-2xl sm:rounded-2xl shadow-2xl sm:shadow-[8px_8px_0px_#191B1E] animate-in fade-in slide-in-from-bottom-6 duration-300 overflow-hidden"
       >
         {/* Header with Avatar, Title, Clear, Close */}
@@ -186,7 +187,7 @@ export function KebaChatDrawer() {
 
         {/* Optional Business Enquiry Intake Wizard */}
         {isEnquiryOpen ? (
-          <div className="flex-1 overflow-y-auto">
+          <div className="flex-1 overflow-y-auto" data-lenis-prevent onWheel={(e) => e.stopPropagation()}>
             <ChatEnquiryFlow
               onClose={() => setIsEnquiryOpen(false)}
               onSuccess={handleEnquirySuccess}
