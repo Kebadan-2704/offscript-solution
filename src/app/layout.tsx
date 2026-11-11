@@ -93,6 +93,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
+      data-scroll-behavior="smooth"
       className={`${plusJakartaSans.variable} ${spaceGrotesk.variable} ${inter.variable} ${syne.variable} ${ibmPlexMono.variable} antialiased`}
     >
       <head>
