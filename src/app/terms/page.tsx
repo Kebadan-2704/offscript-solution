@@ -49,6 +49,7 @@ export default function TermsPage() {
 
       <Container>
         <SectionHeading
+          as="h1"
           index="01"
           eyebrow="Commercial Governance"
           title={

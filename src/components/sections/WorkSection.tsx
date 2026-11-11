@@ -6,6 +6,7 @@ import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { PROJECTS, WORK_FILTERS } from '@/content/work';
 import { ArrowUpRight } from 'lucide-react';
+import { Reveal } from '@/components/animations/Reveal';
 
 function ProjectArtwork({ slug }: { slug: string }) {
   switch (slug) {
@@ -141,7 +142,7 @@ export function WorkSection() {
 
         {/* Projects 3-Column Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProjects.map((project) => {
+          {filteredProjects.map((project, idx) => {
             const statusColor =
               project.status === 'Commercial'
                 ? 'bg-[#D36B4D] text-[#191B1E]'
@@ -152,80 +153,81 @@ export function WorkSection() {
                 : 'bg-[#F5F3ED] text-[#191B1E] border border-[#191B1E]/20';
 
             return (
-              <article
-                key={project.id}
-                className="group flex flex-col justify-between border border-[#E6E2D9] bg-white transition-all duration-300 hover:border-[#191B1E] hover:shadow-xs"
-              >
-                {/* 16:10 Abstract Frame */}
-                <div className="relative aspect-[16/10] bg-[#E6E2D9]/40 overflow-hidden flex items-center justify-center border-b border-[#E6E2D9]">
-                  {/* Status Badge */}
-                  <div className="absolute top-4 left-4 z-10">
-                    <span
-                      className={`font-mono text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 ${statusColor}`}
-                    >
-                      {project.status}
-                    </span>
-                  </div>
-
-                  {/* Unique Bespoke Geometric Artwork per Project */}
-                  <div className="w-1/2 aspect-square flex items-center justify-center transition-transform duration-700 ease-[cubic-bezier(0.2,0.7,0.1,1)] group-hover:scale-105">
-                    <ProjectArtwork slug={project.slug} />
-                  </div>
-                </div>
-
-                {/* Project Details */}
-                <div className="p-6 sm:p-7 flex flex-col justify-between flex-1">
-                  <div>
-                    <span className="font-mono text-xs text-[#9B3F27] uppercase tracking-wider block mb-2 font-semibold">
-                      {project.category}
-                    </span>
-
-                    <h3 className="font-space text-xl sm:text-2xl font-semibold text-[#191B1E] tracking-tight mb-3 group-hover:text-[#D36B4D] transition-colors">
-                      {project.title}
-                    </h3>
-
-                    <p className="text-sm text-[#52534E] leading-relaxed mb-6">
-                      {project.summary}
-                    </p>
-                  </div>
-
-                  <div>
-                    {/* Tech Stack Pills */}
-                    <div className="flex flex-wrap gap-1.5 pt-4 border-t border-[#E6E2D9] mb-4">
-                      {project.stack.map((tech, tIdx) => (
-                        <span
-                          key={tIdx}
-                          className="font-mono text-[11px] px-2 py-0.5 bg-[#F5F3ED] text-[#191B1E] border border-[#E6E2D9]"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="flex items-center justify-between gap-3 pt-1">
-                      <Link
-                        href={`/work/${project.slug}`}
-                        className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold uppercase tracking-wider text-[#191B1E] hover:text-[#9B3F27] transition-colors min-h-[44px] py-2"
+              <Reveal key={project.id} delayIndex={idx % 3}>
+                <article
+                  className="group flex flex-col justify-between border border-[#E6E2D9] bg-white transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-[#191B1E] hover:-translate-y-1.5 hover:shadow-[0_16px_36px_rgba(25,27,30,0.08)] h-full"
+                >
+                  {/* 16:10 Abstract Frame */}
+                  <div className="relative aspect-[16/10] bg-[#E6E2D9]/40 overflow-hidden flex items-center justify-center border-b border-[#E6E2D9]">
+                    {/* Status Badge */}
+                    <div className="absolute top-4 left-4 z-10">
+                      <span
+                        className={`font-mono text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 ${statusColor}`}
                       >
-                        <span>Case Study</span>
-                        <ArrowUpRight className="w-3.5 h-3.5" />
-                      </Link>
+                        {project.status}
+                      </span>
+                    </div>
 
-                      {(project.links?.live || project.links?.repo) && (
-                        <a
-                          href={project.links?.live || project.links?.repo}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 font-mono text-[11px] text-[#52534E] hover:text-[#9B3F27] underline underline-offset-2 transition-colors min-h-[44px] py-2"
-                        >
-                          <span>{project.links?.live ? 'Live App' : 'Repository'}</span>
-                          <ArrowUpRight className="w-3 h-3" />
-                        </a>
-                      )}
+                    {/* Unique Bespoke Geometric Artwork per Project */}
+                    <div className="w-1/2 aspect-square flex items-center justify-center transition-transform duration-700 ease-[cubic-bezier(0.2,0.7,0.1,1)] group-hover:scale-108">
+                      <ProjectArtwork slug={project.slug} />
                     </div>
                   </div>
-                </div>
-              </article>
+
+                  {/* Project Details */}
+                  <div className="p-6 sm:p-7 flex flex-col justify-between flex-1">
+                    <div>
+                      <span className="font-mono text-xs text-[#9B3F27] uppercase tracking-wider block mb-2 font-semibold">
+                        {project.category}
+                      </span>
+
+                      <h3 className="font-space text-xl sm:text-2xl font-semibold text-[#191B1E] tracking-tight mb-3 group-hover:text-[#D36B4D] transition-colors">
+                        {project.title}
+                      </h3>
+
+                      <p className="text-sm text-[#52534E] leading-relaxed mb-6">
+                        {project.summary}
+                      </p>
+                    </div>
+
+                    <div>
+                      {/* Tech Stack Pills */}
+                      <div className="flex flex-wrap gap-1.5 pt-4 border-t border-[#E6E2D9] mb-4">
+                        {project.stack.map((tech, tIdx) => (
+                          <span
+                            key={tIdx}
+                            className="font-mono text-[11px] px-2 py-0.5 bg-[#F5F3ED] text-[#191B1E] border border-[#E6E2D9]"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="flex items-center justify-between gap-3 pt-1">
+                        <Link
+                          href={`/work/${project.slug}`}
+                          className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold uppercase tracking-wider text-[#191B1E] hover:text-[#9B3F27] transition-colors min-h-[44px] py-2"
+                        >
+                          <span>Case Study</span>
+                          <ArrowUpRight className="w-3.5 h-3.5 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                        </Link>
+
+                        {(project.links?.live || project.links?.repo) && (
+                          <a
+                            href={project.links?.live || project.links?.repo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 font-mono text-[11px] text-[#52534E] hover:text-[#9B3F27] underline underline-offset-2 transition-colors min-h-[44px] py-2"
+                          >
+                            <span>{project.links?.live ? 'Live App' : 'Repository'}</span>
+                            <ArrowUpRight className="w-3 h-3 transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </Reveal>
             );
           })}
         </div>

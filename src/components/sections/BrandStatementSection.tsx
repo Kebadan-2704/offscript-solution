@@ -53,6 +53,7 @@ export function BrandStatementSection() {
                   alt="OFFSCRIPT 3D emblem accent"
                   width={857}
                   height={542}
+                  priority
                   className="w-full h-auto object-contain filter grayscale contrast-125 brightness-75 opacity-25 group-hover/emblem:opacity-100 group-hover/emblem:grayscale-0 group-hover/emblem:brightness-110 group-hover/emblem:saturate-150 group-hover/emblem:drop-shadow-[0_25px_60px_rgba(211,107,77,0.45)] transition-all duration-700 ease-[cubic-bezier(0.2,0.7,0.1,1)]"
                 />
               </div>

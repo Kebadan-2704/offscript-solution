@@ -8,14 +8,14 @@ import { SITE_CONFIG } from '@/content/site';
 export const metadata: Metadata = {
   title: 'Direct Technical Consultation',
   description:
-    'Initiate a direct engineering consultation with our systems architects. Zero sales hand-offs, no account middle layers, 24-hour response SLA.',
+    'Initiate a direct engineering consultation with our systems architects. Zero sales hand-offs, no account middle layers, 24-business-hour response SLA.',
   alternates: {
     canonical: `${SITE_CONFIG.url}/contact`,
   },
   openGraph: {
     title: 'Direct Technical Consultation — OFFSCRIPT SOLUTION',
     description:
-      'Initiate a direct engineering consultation with our systems architects. Zero sales hand-offs, no account middle layers, 24-hour response SLA.',
+      'Initiate a direct engineering consultation with our systems architects. Zero sales hand-offs, no account middle layers, 24-business-hour response SLA.',
     url: `${SITE_CONFIG.url}/contact`,
     type: 'website',
   },

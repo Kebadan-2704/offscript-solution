@@ -44,7 +44,7 @@ export function SectionHeading({
 
       <Component
         className={cn(
-          'font-space font-semibold tracking-[-0.035em] text-3xl sm:text-4xl md:text-5xl lg:text-6xl max-w-3xl leading-[1.05] text-balance',
+          'font-space font-semibold tracking-[-0.035em] text-[clamp(1.85rem,4.5vw,3.75rem)] max-w-3xl leading-[1.05] text-balance',
           dark ? 'text-[#F5F3ED]' : 'text-[#191B1E]'
         )}
       >

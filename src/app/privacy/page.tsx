@@ -49,6 +49,7 @@ export default function PrivacyPage() {
 
       <Container>
         <SectionHeading
+          as="h1"
           index="01"
           eyebrow="Data Governance & Rights"
           title={

@@ -8,6 +8,7 @@ interface MaskRevealProps {
   as?: 'h1' | 'h2' | 'h3' | 'div';
   className?: string;
   delayMs?: number;
+  trigger?: boolean;
 }
 
 /**
@@ -19,14 +20,15 @@ export function MaskReveal({
   as: Component = 'h2',
   className = '',
   delayMs = 0,
+  trigger,
 }: MaskRevealProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [inView, setInView] = useState(Component === 'h1');
+  const [inView, setInView] = useState(Component === 'h1' && trigger === undefined);
   const prefersReduced = useReducedMotion();
-  const shouldShow = inView || prefersReduced;
+  const shouldShow = prefersReduced || (trigger !== undefined ? trigger : inView);
 
   useEffect(() => {
-    if (prefersReduced || Component === 'h1') return;
+    if (prefersReduced || (Component === 'h1' && trigger === undefined) || trigger !== undefined) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {

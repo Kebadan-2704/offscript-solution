@@ -1,5 +1,6 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Container } from '@/components/ui/Container';
 import { Eyebrow } from '@/components/ui/Eyebrow';
@@ -8,17 +9,41 @@ import { SplitHeading } from '@/components/animations/SplitHeading';
 import { Parallax } from '@/components/animations/Parallax';
 import { ArchitectureCanvas } from '@/components/animations/ArchitectureCanvas';
 import { Magnetic } from '@/components/animations/Magnetic';
+import { useReducedMotion } from '@/hooks/useReducedMotion';
 
 /**
  * Editorial Hero Section with asymmetric typography, ambient architecture canvas,
  * and bespoke SVG OS symbol composition.
  */
 export function HeroSection() {
+  const prefersReduced = useReducedMotion();
+  const [introReady, setIntroReady] = useState(false);
+
+  useEffect(() => {
+    if (prefersReduced) {
+      setIntroReady(true);
+      return;
+    }
+
+    const handleReady = () => setIntroReady(true);
+    window.addEventListener('offscript:intro-ready', handleReady);
+
+    // Fallback if loader was already completed or skipped
+    const timer = setTimeout(() => {
+      setIntroReady(true);
+    }, 3200);
+
+    return () => {
+      window.removeEventListener('offscript:intro-ready', handleReady);
+      clearTimeout(timer);
+    };
+  }, [prefersReduced]);
+
   return (
     <section
       id="hero"
       aria-label="Hero Section"
-      className="relative min-h-[100svh] pt-20 sm:pt-22 lg:pt-24 pb-4 sm:pb-6 flex flex-col justify-between overflow-hidden bg-[#F5F3ED] scroll-mt-[84px]"
+      className="relative min-h-[100dvh] pt-20 sm:pt-22 lg:pt-24 pb-4 sm:pb-6 flex flex-col justify-between overflow-hidden bg-[#F5F3ED] scroll-mt-[84px]"
     >
       {/* Ambient Engineering Coordinate Canvas */}
       <ArchitectureCanvas theme="light" className="pointer-events-none absolute inset-0 opacity-40 z-0" />
@@ -27,7 +52,14 @@ export function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
           {/* Left Column: Editorial Headline & Actions */}
           <div className="hero-left lg:col-span-7 xl:col-span-7 flex flex-col items-start justify-center">
-            <Eyebrow>Independent Technology & Digital Solutions Studio</Eyebrow>
+            <div
+              className={`transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                introReady ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
+              }`}
+              style={{ transitionDelay: '80ms' }}
+            >
+              <Eyebrow>Independent Technology & Digital Solutions Studio</Eyebrow>
+            </div>
 
             <SplitHeading
               lines={[
@@ -38,15 +70,27 @@ export function HeroSection() {
                 </>,
               ]}
               as="h1"
+              trigger={introReady}
+              delayMs={180}
               className="hero-title font-syne text-4xl sm:text-6xl md:text-7xl lg:text-[70px] xl:text-[80px] font-bold tracking-[-0.03em] leading-[0.95] text-[#191B1E]"
             />
 
-            <p className="hero-desc mt-4 sm:mt-5 text-sm sm:text-base lg:text-base text-[#52534E] max-w-xl leading-relaxed text-balance">
+            <p
+              style={{ transitionDelay: '480ms' }}
+              className={`hero-desc mt-4 sm:mt-5 text-sm sm:text-base lg:text-base text-[#52534E] max-w-xl leading-relaxed text-balance transition-all duration-800 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                introReady ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+            >
               We engineer bespoke software, intelligent systems, and scalable digital platforms
               designed to solve complex operational bottlenecks with uncompromising technical craft.
             </p>
 
-            <div className="hero-actions mt-6 sm:mt-7 flex flex-wrap items-center gap-3 sm:gap-4">
+            <div
+              style={{ transitionDelay: '620ms' }}
+              className={`hero-actions mt-6 sm:mt-7 flex flex-wrap items-center gap-3 sm:gap-4 transition-all duration-800 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                introReady ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
+            >
               <Magnetic strength={10}>
                 <Button href="#contact" variant="primary">
                   Start a Project
@@ -60,14 +104,24 @@ export function HeroSection() {
             </div>
 
             {/* Direct SLA Micro-Copy (From verified intake commitment) */}
-            <p className="hero-sla mt-3 text-xs font-mono text-[#6B6C67] flex items-center gap-2">
+            <p
+              style={{ transitionDelay: '740ms' }}
+              className={`hero-sla mt-3 text-xs font-mono text-[#6B6C67] flex items-center gap-2 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                introReady ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+              }`}
+            >
               <span className="w-1.5 h-1.5 rounded-full bg-[#D36B4D]" aria-hidden="true" />
               <span>Direct principal review within 24 business hours. No sales intermediaries.</span>
             </p>
           </div>
 
           {/* Right Column: Sculptural 3D Master Emblem Video (Extra Large, Centered & Responsive) */}
-          <div className="hero-emblem lg:col-span-5 xl:col-span-5 flex justify-center lg:justify-end items-center">
+          <div
+            style={{ transitionDelay: '280ms' }}
+            className={`hero-emblem lg:col-span-5 xl:col-span-5 flex justify-center lg:justify-end items-center transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+              introReady ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+            }`}
+          >
             <Parallax maxOffset={14} className="w-full max-w-[440px] sm:max-w-[540px] lg:max-w-[640px] xl:max-w-[720px] 2xl:max-w-[780px]">
               <div className="relative w-full aspect-[16/11] flex items-center justify-center group">
                 {/* Ambient Warm Lighting Halo */}

@@ -173,7 +173,7 @@ export function FinalCtaSection() {
                   PROJECT INTAKE BRIEF
                 </span>
               </div>
-              <span className="font-mono text-[11px] text-[#E6E2D9]/60">SLA: 24h Response</span>
+              <span className="font-mono text-[11px] text-[#E6E2D9]/60">SLA: 24h Business Response</span>
             </div>
 
             {status === 'success' ? (

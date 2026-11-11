@@ -8,6 +8,7 @@ interface SplitHeadingProps {
   as?: 'h1' | 'h2' | 'h3';
   className?: string;
   delayMs?: number;
+  trigger?: boolean;
 }
 
 /**
@@ -18,6 +19,7 @@ export function SplitHeading({
   as = 'h2',
   className = '',
   delayMs = 0,
+  trigger,
 }: SplitHeadingProps) {
   const defaultFont = className.includes('font-') ? '' : 'font-space';
   return (
@@ -26,6 +28,7 @@ export function SplitHeading({
       as={as}
       className={`${defaultFont} font-bold tracking-tight text-[#191B1E] leading-[0.98] ${className}`}
       delayMs={delayMs}
+      trigger={trigger}
     />
   );
 }

@@ -308,7 +308,7 @@ export default function AboutPage() {
               Let&apos;s evaluate your architectural requirements.
             </h3>
             <p className="text-sm text-[#E6E2D9]/80 font-normal leading-relaxed">
-              Direct consultation with our founding systems architect. Response SLA within 24 hours.
+              Direct consultation with our founding systems architect. Response SLA within 24 business hours.
             </p>
           </div>
 
