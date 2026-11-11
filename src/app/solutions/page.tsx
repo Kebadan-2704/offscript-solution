@@ -71,6 +71,7 @@ export default function SolutionsPage() {
       <Container>
         {/* Editorial Section Heading */}
         <SectionHeading
+          as="h1"
           index="01"
           eyebrow="Architectural Solutions"
           title={

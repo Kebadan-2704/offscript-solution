@@ -26,7 +26,7 @@ export function HeroSection() {
       <Container className="w-full relative z-10 my-auto py-1 sm:py-2">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
           {/* Left Column: Editorial Headline & Actions */}
-          <div className="lg:col-span-7 xl:col-span-7 flex flex-col items-start justify-center">
+          <div className="hero-left lg:col-span-7 xl:col-span-7 flex flex-col items-start justify-center">
             <Eyebrow>Independent Technology & Digital Solutions Studio</Eyebrow>
 
             <SplitHeading
@@ -38,15 +38,15 @@ export function HeroSection() {
                 </>,
               ]}
               as="h1"
-              className="font-syne text-4xl sm:text-6xl md:text-7xl lg:text-[70px] xl:text-[80px] font-bold tracking-[-0.03em] leading-[0.95] text-[#191B1E]"
+              className="hero-title font-syne text-4xl sm:text-6xl md:text-7xl lg:text-[70px] xl:text-[80px] font-bold tracking-[-0.03em] leading-[0.95] text-[#191B1E]"
             />
 
-            <p className="mt-4 sm:mt-5 text-sm sm:text-base lg:text-base text-[#52534E] max-w-xl leading-relaxed text-balance">
+            <p className="hero-desc mt-4 sm:mt-5 text-sm sm:text-base lg:text-base text-[#52534E] max-w-xl leading-relaxed text-balance">
               We engineer bespoke software, intelligent systems, and scalable digital platforms
               designed to solve complex operational bottlenecks with uncompromising technical craft.
             </p>
 
-            <div className="mt-6 sm:mt-7 flex flex-wrap items-center gap-3 sm:gap-4">
+            <div className="hero-actions mt-6 sm:mt-7 flex flex-wrap items-center gap-3 sm:gap-4">
               <Magnetic strength={10}>
                 <Button href="#contact" variant="primary">
                   Start a Project
@@ -58,10 +58,16 @@ export function HeroSection() {
                 </Button>
               </Magnetic>
             </div>
+
+            {/* Direct SLA Micro-Copy (From verified intake commitment) */}
+            <p className="hero-sla mt-3 text-xs font-mono text-[#6B6C67] flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#D36B4D]" aria-hidden="true" />
+              <span>Direct principal review within 24 business hours. No sales intermediaries.</span>
+            </p>
           </div>
 
           {/* Right Column: Sculptural 3D Master Emblem Video (Extra Large, Centered & Responsive) */}
-          <div className="lg:col-span-5 xl:col-span-5 flex justify-center lg:justify-end items-center">
+          <div className="hero-emblem lg:col-span-5 xl:col-span-5 flex justify-center lg:justify-end items-center">
             <Parallax maxOffset={14} className="w-full max-w-[440px] sm:max-w-[540px] lg:max-w-[640px] xl:max-w-[720px] 2xl:max-w-[780px]">
               <div className="relative w-full aspect-[16/11] flex items-center justify-center group">
                 {/* Ambient Warm Lighting Halo */}
@@ -93,15 +99,14 @@ export function HeroSection() {
 
       {/* Scroll Cue Hairline indicator aligned inside Container */}
       <Container className="w-full relative z-10">
-        <div className="w-full flex items-center justify-between pt-3 sm:pt-4 border-t border-[#E6E2D9]">
-          <div className="flex items-center gap-4 text-xs font-mono text-[#52534E] uppercase tracking-widest">
+        <div className="w-full flex items-center pt-3 sm:pt-4 border-t border-[#E6E2D9]">
+          <div className="flex items-center gap-3 sm:gap-4 text-xs font-mono text-[#52534E] uppercase tracking-widest">
             <div className="relative w-px h-6 bg-[#E6E2D9] overflow-hidden">
               <div className="absolute inset-0 bg-[#D36B4D] animate-[scrollCue_2s_infinite]" />
             </div>
             <span>Scroll to explore</span>
-          </div>
-          <div className="font-mono text-xs text-[#52534E] tracking-widest pr-20 sm:pr-28 lg:pr-32">
-            STUDIO 2026
+            <span className="text-[#92938D]">·</span>
+            <span>Studio 2026</span>
           </div>
         </div>
       </Container>
@@ -121,6 +126,43 @@ export function HeroSection() {
           }
           100% {
             transform: translateY(100%);
+          }
+        }
+        @media (max-height: 500px) {
+          :global(#hero) {
+            min-height: auto !important;
+            padding-top: 4.25rem !important;
+            padding-bottom: 0.5rem !important;
+          }
+          :global(#hero .hero-title) {
+            font-size: 1.85rem !important;
+            line-height: 1.0 !important;
+          }
+          :global(#hero .hero-desc) {
+            margin-top: 0.35rem !important;
+            font-size: 0.8125rem !important;
+            line-height: 1.3 !important;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+          }
+          :global(#hero .hero-actions) {
+            margin-top: 0.5rem !important;
+            gap: 0.5rem !important;
+          }
+          :global(#hero .hero-actions a),
+          :global(#hero .hero-actions button) {
+            min-height: 38px !important;
+            padding: 0.35rem 0.85rem !important;
+            font-size: 0.75rem !important;
+          }
+          :global(#hero .hero-sla) {
+            margin-top: 0.25rem !important;
+            font-size: 0.6875rem !important;
+          }
+          :global(#hero .hero-emblem) {
+            max-width: 200px !important;
           }
         }
         @media (prefers-reduced-motion: reduce) {
