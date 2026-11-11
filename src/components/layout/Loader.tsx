@@ -245,9 +245,9 @@ export function Loader() {
               className="w-full h-full object-contain pointer-events-none select-none transform-gpu scale-125 sm:scale-130 md:scale-135 transition-transform duration-700"
               aria-label="OFFSCRIPT SOLUTION 3D animated monogram emblem"
             >
-              {/* Primary: Hardware Accelerated H.264 (smooth 60fps on all GPUs) */}
-              <source src="/brand/preloader.mp4" type="video/mp4" />
+              {/* Primary: WebM with native alpha channel for 100% true transparency */}
               <source src="/brand/preloader.webm" type="video/webm" />
+              <source src="/brand/preloader.mp4" type="video/mp4" />
             </video>
           </div>
         </div>
