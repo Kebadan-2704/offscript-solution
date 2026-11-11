@@ -6,10 +6,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 /**
  * Editorial Studio Intro Preloader.
- * - Displays the sculptural 3D monogram emblem from "preloader.webm" / "preloader.mp4"
+ * - Displays the sculptural 3D monogram emblem from "preloader.mp4" (hardware accelerated H.264)
  * - High-end studio layout: top telemetry bar, breathing center 3D hero stage, and clean single-line typography suite
  * - Plays reliably on page load / refresh
- * - The video plays strictly ONCE (no looping, freezes on last frame at 2.95s)
+ * - The video plays strictly ONCE: smooth continuous playback with instant onEnded completion
  * - Staggered architectural typography: Welcome eyebrow, bold uppercase tagline, studio telemetry
  * - Seamless cinematic fade out directly into the Hero Section
  * - Zero collision: pure flexbox flow prevents any text overlap across all screen heights and widths
@@ -27,7 +27,6 @@ export function Loader() {
 
   const handleComplete = useCallback(() => {
     if (typeof window !== 'undefined') {
-      // Clear any legacy session lockout flag so preloader always works reliably
       try {
         sessionStorage.removeItem('offscript_intro_seen');
       } catch {
@@ -75,7 +74,6 @@ export function Loader() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    // Purge legacy session key so preloader loads every time user refreshes
     try {
       sessionStorage.removeItem('offscript_intro_seen');
     } catch {
@@ -167,14 +165,14 @@ export function Loader() {
     }
 
     // 4. Staggered text choreography timers
-    const t0 = setTimeout(() => setTextStep(1), 250);
-    const t1 = setTimeout(() => setTextStep(2), 700);
-    const t2 = setTimeout(() => setTextStep(3), 1500);
+    const t0 = setTimeout(() => setTextStep(1), 200);
+    const t1 = setTimeout(() => setTextStep(2), 650);
+    const t2 = setTimeout(() => setTextStep(3), 1400);
 
-    // 5. Auto-transition fallback right as logo completes single playback (~3.3s)
+    // 5. Safety fallback timer if onEnded doesn't fire (~3.4s)
     const timer = setTimeout(() => {
       handleComplete();
-    }, 3300);
+    }, 3400);
 
     // 6. Keyboard skip listener
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -228,10 +226,10 @@ export function Loader() {
       {/* 2. Center Stage: Sculptural 3D Emblem Hero (Naturally Constrained & Vertically Centered) */}
       <main className="flex-1 w-full max-w-5xl flex items-center justify-center relative min-h-0 px-4 py-2 z-10 pointer-events-none">
         <div className="relative w-full max-w-[800px] h-[min(42vh,380px)] flex items-center justify-center">
-          {/* Ambient Warm Terracotta Halo */}
+          {/* Ambient Warm Terracotta Halo (GPU-accelerated) */}
           <div
             aria-hidden="true"
-            className="absolute inset-0 bg-radial from-[#D36B4D]/24 via-[#D36B4D]/6 to-transparent blur-3xl pointer-events-none rounded-full scale-130"
+            className="absolute inset-0 bg-radial from-[#D36B4D]/24 via-[#D36B4D]/6 to-transparent blur-3xl pointer-events-none rounded-full scale-130 transform-gpu"
           />
 
           <div className="relative w-full h-full flex items-center justify-center">
@@ -242,24 +240,14 @@ export function Loader() {
               playsInline
               preload="auto"
               loop={false}
-              onEnded={() => {
-                if (videoRef.current) {
-                  videoRef.current.pause();
-                }
-                handleComplete();
-              }}
-              onTimeUpdate={() => {
-                // Safety freeze: if video reaches near duration, freeze on final frame so it cannot loop
-                if (videoRef.current && videoRef.current.currentTime >= 2.95) {
-                  videoRef.current.pause();
-                }
-              }}
+              onEnded={handleComplete}
               style={{ mixBlendMode: 'multiply' }}
-              className="w-full h-full object-contain pointer-events-none select-none filter drop-shadow-[0_28px_56px_rgba(25,27,30,0.16)] transform scale-125 sm:scale-130 md:scale-135 transition-transform duration-700"
+              className="w-full h-full object-contain pointer-events-none select-none transform-gpu scale-125 sm:scale-130 md:scale-135 transition-transform duration-700"
               aria-label="OFFSCRIPT SOLUTION 3D animated monogram emblem"
             >
-              <source src="/brand/preloader.webm" type="video/webm" />
+              {/* Primary: Hardware Accelerated H.264 (smooth 60fps on all GPUs) */}
               <source src="/brand/preloader.mp4" type="video/mp4" />
+              <source src="/brand/preloader.webm" type="video/webm" />
             </video>
           </div>
         </div>
