@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -15,6 +15,14 @@ export function Header() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleCloseMenu = useCallback(() => {
+    setMenuOpen(false);
+  }, []);
+
+  const handleToggleMenu = useCallback(() => {
+    setMenuOpen((prev) => !prev);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -102,20 +110,28 @@ export function Header() {
             {/* Mobile Hamburger Trigger */}
             <button
               type="button"
-              onClick={() => setMenuOpen(true)}
-              aria-label="Open mobile menu"
+              onClick={handleToggleMenu}
+              aria-label={menuOpen ? 'Close mobile menu' : 'Open mobile menu'}
               aria-expanded={menuOpen}
-              className="lg:hidden w-11 h-11 flex flex-col items-center justify-center gap-1.5 border border-[#191B1E] bg-transparent focus-visible:outline-[#D36B4D]"
+              className="lg:hidden w-11 h-11 flex flex-col items-center justify-center gap-1.5 border border-[#191B1E] bg-transparent focus-visible:outline-[#D36B4D] cursor-pointer"
             >
-              <span className="w-5 h-[1.5px] bg-[#191B1E] transition-transform" />
-              <span className="w-5 h-[1.5px] bg-[#191B1E] transition-transform" />
+              <span
+                className={`w-5 h-[1.5px] bg-[#191B1E] transition-all duration-300 origin-center ${
+                  menuOpen ? 'rotate-45 translate-y-[3.5px]' : ''
+                }`}
+              />
+              <span
+                className={`w-5 h-[1.5px] bg-[#191B1E] transition-all duration-300 origin-center ${
+                  menuOpen ? '-rotate-45 -translate-y-[3.5px]' : ''
+                }`}
+              />
             </button>
           </div>
         </div>
       </header>
 
       {/* Accessible full-screen mobile menu */}
-      <MobileMenu isOpen={menuOpen} onClose={() => setMenuOpen(false)} />
+      <MobileMenu isOpen={menuOpen} onClose={handleCloseMenu} />
     </>
   );
 }
