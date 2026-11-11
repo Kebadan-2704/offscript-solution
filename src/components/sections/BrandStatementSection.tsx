@@ -8,7 +8,7 @@ import { ScrollWords } from '@/components/animations/ScrollWords';
  */
 export function BrandStatementSection() {
   const statement =
-    'Most technology agencies default to pre-packaged templates and rigid SaaS subscriptions that force your operations into artificial compromises. OFFSCRIPT SOLUTION exists to engineer bespoke digital architectures designed around the exact shape of your hardest problems.';
+    'Most agencies default to rigid templates. OFFSCRIPT SOLUTION engineers bespoke digital architectures built for your hardest problems.';
 
   return (
     <section id="statement" className="relative bg-[#191B1E] text-[#F5F3ED] py-12 sm:py-16 lg:py-20 overflow-hidden border-y border-[#191B1E]">
