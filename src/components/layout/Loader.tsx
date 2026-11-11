@@ -8,12 +8,13 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
  * Editorial Studio Intro Preloader.
  * - Displays the sculptural 3D monogram emblem from "preloader.webm" / "preloader.mp4"
  * - High-end studio layout: top telemetry bar, breathing center 3D hero stage, and clean single-line typography suite
- * - Plays strictly ONCE (no looping, freezes on last frame, and skips in same session via sessionStorage)
+ * - Plays reliably on page load / refresh
+ * - The video plays strictly ONCE (no looping, freezes on last frame at 2.95s)
  * - Staggered architectural typography: Welcome eyebrow, bold uppercase tagline, studio telemetry
  * - Seamless cinematic fade out directly into the Hero Section
  * - Zero collision: pure flexbox flow prevents any text overlap across all screen heights and widths
  * - Click anywhere or press Escape to skip immediately
- * - Full prefers-reduced-motion: reduce bypass for accessibility
+ * - Clean reduced-motion support without CSS display:none conflicts
  */
 export function Loader() {
   const router = useRouter();
@@ -26,10 +27,11 @@ export function Loader() {
 
   const handleComplete = useCallback(() => {
     if (typeof window !== 'undefined') {
+      // Clear any legacy session lockout flag so preloader always works reliably
       try {
-        sessionStorage.setItem('offscript_intro_seen', 'true');
+        sessionStorage.removeItem('offscript_intro_seen');
       } catch {
-        // Fallback if sessionStorage is disabled or blocked
+        // Safe catch
       }
 
       // Freeze video immediately on final frame so it never loops or restarts
@@ -73,41 +75,14 @@ export function Loader() {
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
-    // Support force re-play for testing via query parameter ?intro=1 or ?replay=1
-    const forceReplay = window.location.search.includes('intro=1') || window.location.search.includes('replay=1');
-
-    // 1. Session check: The intro video plays strictly ONCE per browsing session
-    if (!forceReplay) {
-      try {
-        const hasSeenIntro = sessionStorage.getItem('offscript_intro_seen');
-        if (hasSeenIntro === 'true') {
-          document.documentElement.style.overflow = '';
-          document.body.style.overflow = '';
-          document.documentElement.style.height = '';
-          document.body.style.height = '';
-
-          const lenis = (
-            window as unknown as {
-              __lenis?: {
-                scrollTo: (t: number, o?: { immediate: boolean }) => void;
-                start: () => void;
-              };
-            }
-          ).__lenis;
-          lenis?.scrollTo(0, { immediate: true });
-          lenis?.start();
-
-          window.dispatchEvent(new CustomEvent('offscript:intro-ready'));
-          setVisible(false);
-          ScrollTrigger.refresh();
-          return;
-        }
-      } catch {
-        // Ignore sessionStorage errors
-      }
+    // Purge legacy session key so preloader loads every time user refreshes
+    try {
+      sessionStorage.removeItem('offscript_intro_seen');
+    } catch {
+      // Ignore sessionStorage errors
     }
 
-    // 2. Strict prefers-reduced-motion bypass: skip animation, unlock viewport, and enable interactivity immediately
+    // 1. Strict prefers-reduced-motion check: gracefully shorten for accessibility
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     if (mediaQuery.matches) {
       document.documentElement.style.overflow = '';
@@ -143,7 +118,7 @@ export function Loader() {
       return;
     }
 
-    // 3. Strict Scroll & Route Lock to Hero Page
+    // 2. Strict Scroll & Route Lock to Hero Page
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
     }
@@ -177,7 +152,7 @@ export function Loader() {
       history.replaceState(null, '', window.location.pathname);
     }
 
-    // 4. Attempt video playback immediately (strictly once, muted, never looped)
+    // 3. Attempt video playback immediately (strictly once, muted, never looped)
     const video = videoRef.current;
     if (video) {
       video.muted = true;
@@ -191,17 +166,17 @@ export function Loader() {
       }
     }
 
-    // 5. Harmonized text choreography timers
+    // 4. Staggered text choreography timers
     const t0 = setTimeout(() => setTextStep(1), 250);
     const t1 = setTimeout(() => setTextStep(2), 700);
-    const t2 = setTimeout(() => setTextStep(3), 1550);
+    const t2 = setTimeout(() => setTextStep(3), 1500);
 
-    // 6. Auto-transition fallback right as logo completes single playback (~3.3s)
+    // 5. Auto-transition fallback right as logo completes single playback (~3.3s)
     const timer = setTimeout(() => {
       handleComplete();
     }, 3300);
 
-    // 7. Keyboard skip listener
+    // 6. Keyboard skip listener
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') {
         handleComplete();
@@ -232,11 +207,11 @@ export function Loader() {
       aria-live="polite"
       aria-label="Welcome to OFFSCRIPT SOLUTION — Engineered Differently."
       onClick={handleComplete}
-      className={`fixed inset-0 z-[100] bg-[#F5F3ED] flex flex-col justify-between items-center select-none overflow-hidden cursor-pointer motion-reduce:hidden motion-reduce:pointer-events-none transition-opacity duration-800 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+      className={`fixed inset-0 z-[100] bg-[#F5F3ED] flex flex-col justify-between items-center select-none overflow-hidden cursor-pointer transition-opacity duration-800 ease-[cubic-bezier(0.16,1,0.3,1)] ${
         exiting ? 'opacity-0 pointer-events-none' : 'opacity-100'
       }`}
     >
-      {/* 1. Top Studio Telemetry Bar (Hidden on mobile & short screens) */}
+      {/* 1. Top Studio Telemetry Bar (Desktop & Tablet) */}
       <header
         className={`w-full max-w-6xl px-6 pt-5 sm:pt-6 hidden md:flex items-center justify-between font-mono text-[11px] tracking-[0.22em] uppercase text-[#6B6C67] z-20 pointer-events-none transition-opacity duration-700 ${
           textStep >= 1 ? 'opacity-100' : 'opacity-0'
